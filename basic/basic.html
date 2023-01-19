@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./basic.css">
+    <script src="https://kit.fontawesome.com/969baeb221.js" crossorigin="anonymous"></script>
+    <title>Vanilla JS 복습</title>
+</head>
+<body>
+    <!-- 복습 -->
+    <h1 id="hello">안녕하세요</h1>
+    <h1 id="hi">js 초보입니다.</h1>
+    <script>
+        //html변경  
+        document.getElementById('hello').innerHTML = "안녕";
+        document.getElementById('hello').style.color = "orange";
+        document.getElementById('hello').style.fontSize = "16px";
+        document.getElementById('hi').innerHTML ="js 고수입니다.";
+    </script>
+
+    <!-- ui만들기 -->
+    <div class="alertBox">
+        <p>알림창입니다.</p>
+        <p class="close">
+            <i class="fa-solid fa-x"></i><span class="hidden">닫기</span>
+        </p>
+    </div>
+    <button class="open" onclick="alert()">알림창 보기</button>
+    <script>
+        let alertBox = document.querySelector('.alertBox');
+        let clossButton = document.querySelector('.close');
+        let alert = () =>{
+            alertBox.style.display="block";
+        }
+        let close = () =>{
+            document.querySelector('.alertBox').style.display="none";
+        }
+        clossButton.addEventListener("click",close)
+    </script>
+</body>
+</html>
