@@ -17,27 +17,107 @@
         document.getElementById('hello').innerHTML = "안녕";
         document.getElementById('hello').style.color = "orange";
         document.getElementById('hello').style.fontSize = "16px";
-        document.getElementById('hi').innerHTML ="js 고수입니다.";
+        let text = document.getElementById('hi');
+        let textChenge =(innertext)=>{
+            text.innerHTML=innertext;
+        }
+        textChenge('이렇게 바뀌면 성공입니다.');
+
     </script>
 
     <!-- ui만들기 -->
     <div class="alertBox">
-        <p>알림창입니다.</p>
+        <p class="innerText"></p>
         <p class="close">
             <i class="fa-solid fa-x"></i><span class="hidden">닫기</span>
         </p>
     </div>
-    <button class="open" onclick="alert()">알림창 보기</button>
+    <!-- <div class="idBox">
+        <p>ID를 입력하세요.</p>
+        <p class="close" onclick="alert('.idBox','none')">
+            <i class="fa-solid fa-x"></i><span class="hidden">닫기</span>
+        </p>
+    </div>
+    <div class="fwBox">
+        <p>FW를 입력하세요.</p>
+        <p class="close" onclick="alert('.fwBox','none')">
+            <i class="fa-solid fa-x"></i><span class="hidden">닫기</span>
+        </p> -->
+    </div>
+    <section>
+    <button class="open" onclick="alertBox('block','알림창입니다.','skyblue')">알림창 보기</button>
+    <button class="id" onclick="alertBox('block','ID를 입력하세요','yellowgreen')">ID입력</button>
+    <button class="fw" onclick="alertBox('block','FW를 입력하세요','orange')">FW입력</button>
+    </section>
+   <p class="parameter"></p>
     <script>
-        let alertBox = document.querySelector('.alertBox');
         let clossButton = document.querySelector('.close');
-        let alert = () =>{
-            alertBox.style.display="block";
+        let alert =document.querySelector('.alertBox');
+        let alertBox = (state,innerText,color) =>{
+            alert.style.display=state;
+            alert.style.background=color;
+            document.querySelector('.innerText').innerHTML=innerText;
         }
         let close = () =>{
             document.querySelector('.alertBox').style.display="none";
         }
+        //콜백함수 -> 순차적으로 실행하고싶을때 사용
         clossButton.addEventListener("click",close)
+
+        //파라미터 예시2
+        let p = document.querySelector('.parameter');
+        
+        let plus = (a, b) => {
+            let c = a*b;
+            p.innerHTML += '</br>'+ c;
+        }
+        plus(12, 3);
+        plus(9, 6);
+    </script>
+
+    <ul class="navbar">클래스추가로 ul동작
+        <li>tab menu1</li>
+        <li>tab menu2</li>
+        <li>tab menu3</li>
+        <li>tab menu4</li>
+    </ul>
+    <script>
+       let ul = document.querySelector('.navbar');
+       let navbarShow =()=>{
+        ul.classList.toggle('showNav');}
+       ul.addEventListener('click',navbarShow);
+    </script>
+    <button class="login">로그인</button>
+    <div class="black_bg">
+        <div class="white_bg">
+            <span>로그인을 해주세요.</span>
+            <p class="modalClose"><i class="fa-solid fa-x"></i><span class="hidden">닫기<span></p>
+        </div>
+    </div>
+    <script>
+        let loginButton = document.querySelector('.login');
+        let modalBg = document.querySelector('.black_bg');
+        let modalClose = document.querySelector('.modalClose');
+        let modal= document.querySelector('.white_bg');
+        // let modalState =(state)=>{
+        //     modal.style.display=state;
+        //     modalBg.style.display=state;
+        // }
+        
+        // loginButton.addEventListener('click', ()=>modalState('block'))
+        // modalBg.addEventListener('click',()=>modalState('none'));
+        // modalClose.addEventListener('click',()=>modalState('none'));
+        let modalShow=()=>{
+            modalBg.classList.add('showModal');
+          //  modal.classList.add('showModal');
+        }
+        let modalHide =()=>{
+            modalBg.classList.remove('showModal')
+            //modal.classList.remove('showModal')
+        }
+        loginButton.addEventListener('click',modalShow);
+        modalBg.addEventListener('click',modalHide);
+        modalClose.addEventListener('click',modalHide);
     </script>
 </body>
 </html>
