@@ -98,7 +98,7 @@
                 </div>
                 <div>
                     <label for="fwBox">FW</label>
-                    <input type="text" name="fwBox" id="fwBox" placeholder="FW를 입력하세요">
+                    <input type="password" name="fwBox" id="fwBox" placeholder="FW를 입력하세요">
                 </div>
                 <button class="loginBtn">로그인</button>
             </form>
@@ -148,12 +148,53 @@
             } else if ( fwBox.value == '') {
                 alert('FW를 입력하세요');
                fwBox.focus();
+            } else if(fwBox.value.length <= 6){
+                alert('FW는 6자리 이상입력해주세요.')
             }
             else{
                 alert('로그인되었습니다.');
             }
         })
+
+        //input / change input은 값이 바뀌는 즉각즉각 코드가실행되고 
+        //change는 입력한 값이 바뀌고 포커스를 잃었을때 발생함
     </script>
 
+    <h4>function, if, 연산자 복습</h4>
+    <p>369 369!</p>
+    <p class="print"></p>
+    <script>
+        let print = document.querySelector('.print');
+        let game369 = (n) =>{
+            if(n%9==0){print.innerHTML +='박수!박수!!<br/>'}
+            else if(n%3==0){
+                print.innerHTML +='박수!<br/>'
+            }else{print.innerHTML += '통과</br>'}
+        }
+        game369(3)
+        game369(6)
+        game369(11)
+        game369(9)
+        game369(12)
+        game369(44)
+        game369(18)
+    </script>
+    <p>공인시험 합격여부</p>
+    <p class="passPrint"></p>
+    <script>
+        let pass = document.querySelector('.passPrint');
+
+        let passNonpass = (point1, point2) => {
+          if((point1 >= 40 && point2 >=40) && (point1+point2 >= 120)){
+                pass.innerHTML +='합격입니다.</br>';
+            } else{
+                pass.innerHTML +='불합격입니다.</br>';
+            } }
+          
+        passNonpass(70, 70); 
+        passNonpass(30, 100); 
+        passNonpass(50, 50); 
+        passNonpass(0, 120); 
+    </script>
 </body>
 </html>
