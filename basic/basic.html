@@ -9,6 +9,43 @@
     <title>Vanilla JS 복습</title>
 </head>
 <body>
+      <!-- 다크모드 -->
+    <header>
+        <div class="headerInner">
+            <h1>JS_STUDY</h1>
+            <span class="bgChenge"><i class="fa-solid fa-moon"></i>Dark Mode</span>
+        </div>
+    </header>
+    
+    <script>
+        let bgChenge = document.querySelector('.bgChenge');
+        let bodyD = document.querySelector('body')
+        let count = 0;
+
+
+        let clickCount = ()=>{
+            count++;
+            if(count%2==1){
+                bgChenge.classList.add('dark');
+                bgChenge.innerHTML='<i class="fa-solid fa-moon"></i> Dark Mode';
+                bodyD.classList.remove('bgDark');
+            }else{
+                bgChenge.classList.remove('dark');
+                bgChenge.innerHTML='<i class="fa-solid fa-moon"></i> Light Mode';
+                bodyD.classList.add('bgDark');
+            }
+        }
+        
+        bgChenge.addEventListener('click', clickCount);
+        
+        // let textChenge1 = ()=>{
+        //     bgChenge.classList.toggle('dark')
+        // }
+        // bgChenge.addEventListener('click',textChenge1);
+    </script>
+    
+    
+    
     <!-- 복습 -->
     <h1 id="hello">안녕하세요</h1>
     <h1 id="hi">js 초보입니다.</h1>
@@ -24,6 +61,8 @@
         textChenge('이렇게 바뀌면 성공입니다.');
 
     </script>
+    
+ 
 
     <!-- ui만들기 -->
     <div class="alertBox">
@@ -185,6 +224,7 @@
         let pass = document.querySelector('.passPrint');
 
         let passNonpass = (point1, point2) => {
+
           if((point1 >= 40 && point2 >=40) && (point1+point2 >= 120)){
                 pass.innerHTML +='합격입니다.</br>';
             } else{
@@ -196,5 +236,6 @@
         passNonpass(50, 50); 
         passNonpass(0, 120); 
     </script>
+
 </body>
 </html>
