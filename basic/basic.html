@@ -52,10 +52,10 @@
    <p class="parameter"></p>
     <script>
         let clossButton = document.querySelector('.close');
-        let alert =document.querySelector('.alertBox');
+        let alertBox1 =document.querySelector('.alertBox');
         let alertBox = (state,innerText,color) =>{
-            alert.style.display=state;
-            alert.style.background=color;
+            alertBox1.style.display=state;
+            alertBox1.style.background=color;
             document.querySelector('.innerText').innerHTML=innerText;
         }
         let close = () =>{
@@ -87,12 +87,27 @@
         ul.classList.toggle('showNav');}
        ul.addEventListener('click',navbarShow);
     </script>
-    <button class="login">로그인</button>
-    <div class="black_bg">
+
+    <div class="black_bg"></div>
         <div class="white_bg">
             <span>로그인을 해주세요.</span>
+            <form action="success.html" name="loginForm" class="loginForm">
+                <div>
+                    <label for="idBox">ID</label>
+                    <input type="text" name="idBox" id="idBox" placeholder="ID를 입력하세요">
+                </div>
+                <div>
+                    <label for="fwBox">FW</label>
+                    <input type="text" name="fwBox" id="fwBox" placeholder="FW를 입력하세요">
+                </div>
+                <button class="loginBtn">로그인</button>
+            </form>
             <p class="modalClose"><i class="fa-solid fa-x"></i><span class="hidden">닫기<span></p>
         </div>
+   
+    <div class="main">
+        <h4>Shirts on sale</h4>
+        <button class="login">LOGIN</button>
     </div>
     <script>
         let loginButton = document.querySelector('.login');
@@ -109,15 +124,36 @@
         // modalClose.addEventListener('click',()=>modalState('none'));
         let modalShow=()=>{
             modalBg.classList.add('showModal');
-          //  modal.classList.add('showModal');
+            modal.classList.add('showModal');
         }
         let modalHide =()=>{
             modalBg.classList.remove('showModal')
-            //modal.classList.remove('showModal')
+            modal.classList.remove('showModal')
         }
         loginButton.addEventListener('click',modalShow);
-        modalBg.addEventListener('click',modalHide);
+        //modalBg.addEventListener('click',modalHide);
         modalClose.addEventListener('click',modalHide);
+
+        //submit 막기
+        let loginForm = document.querySelector('.loginForm');
+        let idBox =document.querySelector('#idBox');
+       let fwBox =document.querySelector('#fwBox');
+        let loginBtn = document.querySelector('.loginBtn');
+        
+        loginForm.addEventListener('submit',function(e){
+            e.preventDefault();
+            if( idBox.value == ''){
+                alert('ID를 입력하세요');
+               idBox.focus();
+            } else if ( fwBox.value == '') {
+                alert('FW를 입력하세요');
+               fwBox.focus();
+            }
+            else{
+                alert('로그인되었습니다.');
+            }
+        })
     </script>
+
 </body>
 </html>
