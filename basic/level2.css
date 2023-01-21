@@ -21,3 +21,11 @@ img { border: 0; vertical-align: top; }
     width: 80%; margin: 20px auto; text-align: center;
     background: rgb(58, 136, 253);}
 .new{background: rgb(255, 134, 134); padding: 10px; text-align: center; width: 80%; margin: 10px auto; color:#fff}
+.emailForm{
+    width: 80%;margin: 20px auto; background: rgb(193, 198, 252);
+    padding: 50px; text-align: center;
+}
+.emailForm div{ display: flex; align-items: center; width: 50%;justify-content: space-between; margin: 20px auto;}
+.emailForm input{padding: 10px 20px; border-radius: 5px; border: none;}
+.emailForm button {padding: 10px; border: none; color:yellowgreen ;border-radius: 5px;background: #fff; transition: all .5s ease;}
+.emailForm button:hover{background: yellowgreen; color:#fff}
