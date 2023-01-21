@@ -205,4 +205,32 @@ console.log(id); // 0이 출력됨
    interest(60000);
    interest(10000);
 
-//
+//방금 마신 커피의 양의 2/3만 리필 해주는곳이 있습니다. 총 2번 리필이 가능하며,
+//예를들어 첫 주문이 90인경우 첫 리필은 60, 두번째 리필은 40을 해줍니다.
+//처음마신 커피의 양의 따라 최대한 마실수 있는 커피의 양을 계산해주는 코드를 작성해봅시다.
+
+
+
+let refill = (first) =>{
+    let total = first + first * 2/3 +first * 2/3 * 2/3;
+    console.log(Math.floor(total));
+}
+refill(90);
+refill(360);
+
+//퀴즈 ui 만들기 정답을 맞추면 정답 3번이상 못맞추면 멍청아 출력
+
+let answer = document.querySelector('#answer');
+let sendButton = document.querySelector('#sendAnswer');
+
+let buttonCount= 0;
+
+    sendButton.addEventListener('click', function(){
+    buttonCount++;
+    if(answer.value=='1335'){
+    alert('정답입니다');
+    }else if(answer.value!='1335'&&buttonCount>=3){
+    alert('야이멍청아!')
+    }
+})
+
