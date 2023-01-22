@@ -71,7 +71,44 @@ let sussess= ()=>{
     }else{
         alert('완료되었습니다.')
     }
-    
-
 }
 FormButton.addEventListener('click',sussess)
+
+//return - 함수 안에 코드실행 끝. return문법 왜쓰나? ->결과값을 반환받을때
+
+//소수점 있는 숫자연산시 주의점 ->  10진법인 수를 입력해도 계산시 2진법으로 변환하여 계산하기때문에 오류가 블상흜 있음
+//숫자 소수점반올림하는법
+
+const func = (a)=>{
+    let num = (a * 1.4).toFixed(3);
+    //toFixed(소숫점 몇자리까지 반올림할지?)메소드는 숫자 뒤에 붙여서 사용가능
+    return parseFloat(num);
+    //tofixed 사용시 문자로 반환됨 -> 숫자타입으로 바꿔서 출력해줘야함
+    //parseInt, parseFloat써서 출력가능
+}
+console.log(func(7000))
+
+//숙제
+
+//1. 함수에 분과 초를 파레로 마라미터로 입력하면 ms단위로바꿔서 반환 함수
+
+let Calculator=(m,s)=>{
+   let ms= m * 1000 * 60 + s * 1000;
+    console.log(ms);
+}
+Calculator(1,30);
+Calculator(2,10);
+
+
+//2. 가격을 파라미터로 입력하면 10%할인가를 뱉는 함수
+
+let Sales =(price, flrst)=>{
+let salePrice = 0;
+if(flrst==true){
+    salePrice = price*0.9 - 1.5;
+} else{salePrice = price*0.9;}
+return Number(salePrice.toFixed(1));
+} 
+
+console.log(Sales(70, false));
+console.log(Sales(10, true));
