@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab 예제 문제풀이</title>
+</head>
+<body>
+    <style>
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,
+        pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,
+        strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,
+        ol,ul,li,fieldset,form,label,legend,
+        table,caption,tbody,tfoot,thead,tr,th,td,article,aside,
+        canvas,details,embed,figure,figcaption,footer,header,
+        hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { margin: 0; padding: 0; border: 0; font-size: 100%; } 
+        article,aside,details,figcaption,figure,footer,
+        header,hgroup,menu,nav,section { display: block; } 
+        body { font-family: 'Noto Sans KR', sans-serif; font-size: 16px; color: #333; } 
+        ol,ul { list-style: none; } 
+        table { border-collapse: collapse; border-spacing: 0; } 
+        address { font-style: normal; } 
+        a { color: #333; text-decoration: none; } 
+        img { border: 0; vertical-align: top; } 
+       .container{width: 70%; margin: 100px auto;}
+       .container .list{display: flex; margin: 10px auto; justify-content: space-between; align-items: center;}
+       .container .list li{width: 30%; padding: 10px; margin-right: 10px;
+         color: #fff; border-radius: 10px; background: rgb(177, 139, 252);text-align: center;}
+         .container .list li.active{background: rgb(132, 73, 249);}
+       .container .tabContent{width: 70%; padding: 100px; text-align: center;
+        background: rgb(224, 215, 255); display: none;}
+       .container .tabContent.show{display: block;}
+       
+       </style>
+
+
+<div class="container">
+    <ul class="list">
+        <li class="tabButton">Product</li>
+        <li class="tabButton">Info</li>
+        <li class="tabButton">Shop</li>
+       </ul>
+        <div class="tabContent">
+            <p>Product설명글입니다.</p>
+        </div>
+        <div class="tabContent">
+            <p>Info설명글입니다</p>
+        </div>
+        <div class="tabContent">
+            <p>Shop설명글입니다</p>
+        </div>
+</div>
+
+    <script src="./tab.js"></script>
+</body>
+</html>

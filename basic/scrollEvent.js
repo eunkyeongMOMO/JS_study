@@ -26,7 +26,7 @@ Members.addEventListener('scroll',()=>{
 })
 // document.documentElement = document.querySelector('html');
 
-//문제3
+//문제3 스크롤 상태바 만들기.
 
 window.addEventListener('scroll',()=>{
     const scrollTop = document.documentElement.scrollTop;
