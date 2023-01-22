@@ -1,6 +1,8 @@
 const Logo = document.querySelector('.logo');
 const Members = document.querySelector('.members');
 const AlertBox =document.querySelector('.alertBox');
+const ScrollInfo =document.querySelector('.scrollInfo');
+//문제 1
 window.addEventListener('scroll',()=>{
     if(window.scrollY>=100){
         Logo.classList.add('scrollLogo');
@@ -8,7 +10,7 @@ window.addEventListener('scroll',()=>{
         Logo.classList.remove('scrollLogo');
     }
 })
-
+//문제 2
 Members.addEventListener('scroll',()=>{
     let userScroll = Members.scrollTop;
     //유저가 스크롤한 값
@@ -21,4 +23,15 @@ Members.addEventListener('scroll',()=>{
         AlertBox.style.display='block';
     }
 
+})
+// document.documentElement = document.querySelector('html');
+
+//문제3
+
+window.addEventListener('scroll',()=>{
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+    const scrollwidth =(scrollTop/height) *100;
+    ScrollInfo.style.width=scrollwidth+'%';
 })
