@@ -95,8 +95,17 @@ let modalHide =()=>{
     modal.classList.remove('showModal')
 }
 loginButton.addEventListener('click',modalShow);
-//modalBg.addEventListener('click',modalHide);
+modalBg.addEventListener('click',modalHide);
 modalClose.addEventListener('click',modalHide);
+
+//이벤트버블링 - 이벤트가 상위 html로 퍼지는현상
+/** event 객체 
+ * e.target 유저가 실제로 클릭한 객체
+ * e.currentTarget 이벤트리스너 달린 곳 this
+ * e.preventDefault() 이벤트 기본동작을 막아줌  
+ * e.stopProfagation() 상위요소로 이벤트 버블링을 막아줌
+ */
+
 
 //submit 막기
 let loginForm = document.querySelector('.loginForm');
