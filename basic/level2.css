@@ -29,3 +29,9 @@ img { border: 0; vertical-align: top; }
 .emailForm input{padding: 10px 20px; border-radius: 5px; border: none;}
 .emailForm button {padding: 10px; border: none; color:yellowgreen ;border-radius: 5px;background: #fff; transition: all .5s ease;}
 .emailForm button:hover{background: yellowgreen; color:#fff}
+
+.formWrap{width: 80%;margin:20px auto; background: rgb(255, 105, 125); text-align: center; color:#fff; padding: 30px;}
+.formWrap p{margin-bottom: 20px; font-weight: 700;}
+.selectBox{width: 60%; padding: 10px; border: none; margin: 15px auto; border-radius: 10px;}
+.shirtBox,.capBox{display: none;}
+.formWrap .capBox.show, .formWrap .shirtBox.show{display: block;}

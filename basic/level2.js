@@ -112,3 +112,25 @@ return Number(salePrice.toFixed(1));
 
 console.log(Sales(70, false));
 console.log(Sales(10, true));
+
+//문제1. 셔츠선택시 서츠 사이즈 셀렉박스 보이고 모자선택시 모자컬러 셀렉박스
+
+const SelectBox = document.querySelector('.selectBox');
+const ShirtBox = document.querySelector('.shirtBox');
+const capBox = document.querySelector('.capBox');
+
+let valueChange = () =>{
+    let SelectValue =SelectBox.value;
+    console.log(SelectValue);
+    if(SelectValue=='cap'){
+        capBox.classList.add('show');
+        ShirtBox.classList.remove('show');
+    }else if(SelectValue=='shirt'){
+        ShirtBox.classList.add('show');
+        capBox.classList.remove('show');
+    }else{
+        ShirtBox.classList.remove('show');
+    }
+}
+SelectBox.addEventListener('input',valueChange)
+
