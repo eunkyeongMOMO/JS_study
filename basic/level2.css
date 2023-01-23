@@ -33,5 +33,5 @@ img { border: 0; vertical-align: top; }
 .formWrap{width: 80%;margin:20px auto; background: rgb(255, 105, 125); text-align: center; color:#fff; padding: 30px;}
 .formWrap p{margin-bottom: 20px; font-weight: 700;}
 .selectBox{width: 60%; padding: 10px; border: none; margin: 15px auto; border-radius: 10px;}
-.shirtBox,.capBox{display: none;}
-.formWrap .capBox.show, .formWrap .shirtBox.show{display: block;}
+.shirtBox,.capBox,.bottomBox{display: none;}
+.formWrap .capBox.show, .formWrap .shirtBox.show, .formWrap .bottomBox.show{display: block;}

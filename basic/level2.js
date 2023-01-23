@@ -115,9 +115,16 @@ console.log(Sales(10, true));
 
 //문제1. 셔츠선택시 서츠 사이즈 셀렉박스 보이고 모자선택시 모자컬러 셀렉박스
 
+const formWrap = document.querySelector('.formWrap');
 const SelectBox = document.querySelector('.selectBox');
 const ShirtBox = document.querySelector('.shirtBox');
 const capBox = document.querySelector('.capBox');
+
+const bottomBox=`<select class="selectBox bottomBox show">
+<option>27</option>
+<option>28</option>
+<option>29</option>
+</select>`
 
 let valueChange = () =>{
     let SelectValue =SelectBox.value;
@@ -128,9 +135,17 @@ let valueChange = () =>{
     }else if(SelectValue=='shirt'){
         ShirtBox.classList.add('show');
         capBox.classList.remove('show');
+    }else if(SelectValue=='bottom'){
+        formWrap.insertAdjacentHTML('beforeend', bottomBox);
+        capBox.classList.remove('show');
+        ShirtBox.classList.remove('show');
     }else{
+        capBox.classList.remove('show');
         ShirtBox.classList.remove('show');
     }
 }
 SelectBox.addEventListener('input',valueChange)
+
+//문제2 js로 html 노드생성해서 넣긔 위에이미함
+//insertAdjacentHTML메소드써서 넣긔
 
