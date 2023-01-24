@@ -31,9 +31,9 @@ const PriceList=[card1Price,card2Price,card3Price];
 
 
 const products = [
-    { id : 0, price : 70000, title : 'Blossom Dress' },
-    { id : 1, price : 50000, title : 'Springfield Shirt' },
-    { id : 2, price : 60000, title : 'Black Monastery' }
+    { id : 0, price : 70000, title: 'Blossom Dress' },
+    { id : 1, price : 50000, title: 'Springfield Shirt' },
+    { id : 2, price : 60000, title: 'Black Monastery' }
   ];
 const title1 =document.querySelectorAll('.title')[0];
 const title2 =document.querySelectorAll('.title')[1];
@@ -48,3 +48,15 @@ for(let j=0; j<=titleList.length; j++){
     titleList[j].innerHTML=products[j].title;
     priceList[j].innerHTML='가격 : '+products[j].price;
 }
+
+
+//ajax 새로고침없이 get, post요청하는 기능
+
+//ajax요청하는범 
+
+faatch('https://codingapple1.github.io/price.json')
+.then(res => res.json()) //받아온 json파일을 object형식으로 바꿔주는것
+.then(data => {
+    console.log(data)
+})
+.catch(error =>{console.log(error)})
