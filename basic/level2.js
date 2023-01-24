@@ -115,34 +115,48 @@ console.log(Sales(10, true));
 
 //문제1. 셔츠선택시 서츠 사이즈 셀렉박스 보이고 모자선택시 모자컬러 셀렉박스
 
+let shirts =[95,100,105,110,115];
+let pants =[26,27,28,29,30];
+let caps =['Red','Yellow','Blue'];
 const formWrap = document.querySelector('.formWrap');
 const SelectBox = document.querySelector('.selectBox');
+const SelectBox2 = document.querySelector('.selectBox2');
 const ShirtBox = document.querySelector('.shirtBox');
 const capBox = document.querySelector('.capBox');
 
-const bottomBox=`<select class="selectBox bottomBox show">
-<option>27</option>
-<option>28</option>
-<option>29</option>
-</select>`
 
+const selectChange=(select)=>{
+        SelectBox2.innerHTML='';
+        select.forEach(function(data){
+       SelectBox2.innerHTML+=`<option>${data}</option>`})}
 let valueChange = () =>{
     let SelectValue =SelectBox.value;
     console.log(SelectValue);
+  
     if(SelectValue=='cap'){
-        capBox.classList.add('show');
-        ShirtBox.classList.remove('show');
+        SelectBox2.classList.add('show');
+        selectChange(caps);
     }else if(SelectValue=='shirt'){
-        ShirtBox.classList.add('show');
-        capBox.classList.remove('show');
+        SelectBox2.classList.add('show');
+        selectChange(shirts);
     }else if(SelectValue=='bottom'){
-        formWrap.insertAdjacentHTML('beforeend', bottomBox);
-        capBox.classList.remove('show');
-        ShirtBox.classList.remove('show');
+        SelectBox2.classList.add('show');
+        selectChange(pants);
     }else{
-        capBox.classList.remove('show');
-        ShirtBox.classList.remove('show');
+        SelectBox2.classList.remove('show');
     }
+    // if(SelectValue=='cap'){
+    //     SelectBox2.classList.add('show');
+    //     SelectBox2.insertAdjacentHTML('beforeend', bottomBox);
+    // }else if(SelectValue=='shirt'){
+    //     SelectBox2.classList.add('show');
+    //     SelectBox2.insertAdjacentHTML('beforeend', bottomBox);
+    // }else if(SelectValue=='bottom'){
+    //     SelectBox2.classList.add('show');
+    //     SelectBox2.insertAdjacentHTML('beforeend', bottomBox);
+    // }else{
+    //     SelectBox2.classList.remove('show');
+    // }
 }
 SelectBox.addEventListener('input',valueChange)
 
