@@ -163,3 +163,46 @@ SelectBox.addEventListener('input',valueChange)
 //문제2 js로 html 노드생성해서 넣긔 위에이미함
 //insertAdjacentHTML메소드써서 넣긔
 
+
+//array, for 문제 1. 출석부에 이름있는지 확인후 있으면 '있어요', 없으면 '없어요' 출력
+//find, indexof, filter사용금지
+
+const Attendance =['흥민','영희','철수','재석','심바'];
+
+let Find = (name)=>{
+    let count=0;
+    Attendance.forEach(
+    (findName)=>{if(findName==name){count=1}})
+    if(count==1){
+    console.log('있어요')}
+    else{console.log('없어요')}
+}
+Find('철수');
+Find('아니');
+Find('영희');
+Find('심바');
+   
+//문제2.이놈의 구구단출력
+
+for(let i=2; i<=9; i++){
+    for(let j = 1; j<=9; j++){
+      console.log ( i +'*'+ j +'=' +i*j)
+    }
+}
+
+//문제3. 기존 평균점수 구하고 기존점수와 이번 모고점수를 비교하여 
+//점수차를 표시하고 올랐으면 올랐네요.안올랐음 재수추천해주세요
+
+let test= (array,score)=>{
+    let result=0;
+    array.forEach((data)=>{
+        result= result + data
+    });
+    if(result / array.length<score){
+        console.log('평균이 올랐네요')
+    }else{console.log('같거나 떨어졌네요')}
+
+}
+
+test([10,20,30,40,50],40);
+test([40,40,40],30);
