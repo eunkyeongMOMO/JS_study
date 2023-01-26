@@ -5,6 +5,7 @@ const MoreBtn =document.querySelector('.more');
 const sortBtn = document.querySelector('.sort');
 const fliterBtn = document.querySelector('.filter');
 const titleSortBtn = document.querySelector('.sort2');
+const buyBtn =document.querySelector('.btn');
 const products = [
     { id : 0, price : 70000, title : 'Blossom Dress' },
     { id : 1, price : 50000, title : 'Springfield Shirt' },
@@ -145,3 +146,5 @@ let titleReverse=()=>{
 }}
 
 titleSortBtn.addEventListener('click', titleReverse);
+
+
