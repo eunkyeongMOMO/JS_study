@@ -72,4 +72,3 @@ let result =year.concat("/"+month+"/"+day+" "+hour+":"+minute+":"+second);
 
 console.log(result);
 
-//10.
