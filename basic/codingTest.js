@@ -116,20 +116,32 @@ fliterBtn.addEventListener('click', priceFilter);
 //문제6 상풍명 다나가순 정렬
 
 let titleReverse=()=>{
-  products.sort((a, b)=>{
-    return b.title > a.title 
+  // products.sort((a, b)=>{
+  //   const upperCaseA = a.title.toUpperCase();
+  //   const upperCaseB = b.title.toUpperCase();
+  //객체 값 뒤엔 toUpperCase 적용안댐 왜?와이낫?
+  // if (upperCaseA < upperCaseB) return 1;  
+  // if (upperCaseA < upperCaseB) return -1;  
+  // if (upperCaseA == upperCaseB) return 0;  
+  // })
+  products.sort((a,b)=>{
+    if(a.title < b.title) return 1;
+    //리턴값이 양수이면 a 오른쪽으로
+    if(a.title > b.title) return -1;
+    //리턴값이 음수이면 b 오른쪽으로ㄴ
+    if(a.title == b.title) return 0;
   })
+  console.log(products);
   CardWrap.innerHTML='';
   for(let i=0; i<products.length; i++){
       CardWrap.innerHTML+=`
       <div class="card">
           <img src="https://via.placeholder.com/600">
           <div class="card-body">
-          <h5 class="title">${ products[i].title}</h5>
+          <h5 class="title">${products[i].title}</h5>
           <p class="price">가격 : ${ products[i].price}</p>
           <button class="btn">주문하기</button>
        </div>`
-
 }}
 
 titleSortBtn.addEventListener('click', titleReverse);
