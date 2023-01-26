@@ -2,22 +2,15 @@
 //문제1. html 생성후 데이터바인딩
 const CardWrap = document.querySelector('.cardWrap');
 const MoreBtn =document.querySelector('.more');
+const sortBtn = document.querySelector('.sort');
+const fliterBtn = document.querySelector('.filter');
+const titleSortBtn = document.querySelector('.sort2');
 const products = [
     { id : 0, price : 70000, title : 'Blossom Dress' },
     { id : 1, price : 50000, title : 'Springfield Shirt' },
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
-//     products.forEach((data, index)=>{
-//     CardWrap.innerHTML+=`   
-//     <div class="card">
-//     <img src="https://via.placeholder.com/600">
-//     <div class="card-body">
-//       <h5 class="title">${data.title}</h5>
-//       <p class="price">가격 : ${data.price}</p>
-//       <button class="btn">주문하기</button>
-//     </div>`
-// })
 
 
 const cardInner=(data)=>{
@@ -60,3 +53,83 @@ fetch("https://codingapple1.github.io/js/more2.json")
 } 
 }
 MoreBtn.addEventListener('click',More);
+
+//숫자 array정렬
+
+let array =[7,3,5,2,40];
+
+array.sort((a,b)=>{
+  return b - a //역순정렬
+})
+//filter 메소드 사용법 -> 반드시 새로운 변수에 담아 사용해야한다.
+
+let newArray = array.filter((a)=>{
+  return a < 5
+})
+console.log(newArray);
+//map을 이용한 array자료 변경
+
+let mapArray = array.map((a)=>{
+  return a * 1000
+})
+console.log(mapArray);
+
+//문제4 sort버튼 누르면 가격낮은순으로 정렬하기
+const rowPrice = ()=>{
+  products.sort((a, b)=>{
+   return a.price - b.price
+  });
+  CardWrap.innerHTML='';
+    for(let i=0; i<products.length; i++){
+        CardWrap.innerHTML+=`
+        <div class="card">
+            <img src="https://via.placeholder.com/600">
+            <div class="card-body">
+            <h5 class="title">${ products[i].title}</h5>
+            <p class="price">가격 : ${ products[i].price}</p>
+            <button class="btn">주문하기</button>
+         </div>`}
+}
+//rowPrice();
+sortBtn.addEventListener('click',rowPrice);
+//문제5 filter 사용해서 6만원이하 상품만 보여게 하기
+
+let priceFilter = () =>{
+  let newProduct = products.filter((a)=>{
+    return a.price <= 60000 ;
+  })
+  console.log(newProduct);
+  CardWrap.innerHTML='';
+  for(let i=0; i<newProduct.length; i++){
+    CardWrap.innerHTML+=`
+    <div class="card">
+        <img src="https://via.placeholder.com/600">
+        <div class="card-body">
+        <h5 class="title">${ newProduct[i].title}</h5>
+        <p class="price">가격 : ${ newProduct[i].price}</p>
+        <button class="btn">주문하기</button>
+     </div>`}
+}
+
+fliterBtn.addEventListener('click', priceFilter);
+
+//문제6 상풍명 다나가순 정렬
+
+let titleReverse=()=>{
+  products.sort((a, b)=>{
+    return b.title > a.title 
+  })
+  CardWrap.innerHTML='';
+  for(let i=0; i<products.length; i++){
+      CardWrap.innerHTML+=`
+      <div class="card">
+          <img src="https://via.placeholder.com/600">
+          <div class="card-body">
+          <h5 class="title">${ products[i].title}</h5>
+          <p class="price">가격 : ${ products[i].price}</p>
+          <button class="btn">주문하기</button>
+       </div>`
+
+}}
+
+titleSortBtn.addEventListener('click', titleReverse);
