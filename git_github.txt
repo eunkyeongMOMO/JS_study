@@ -1,0 +1,17 @@
+    입사전에 깃허브 벼락치기
+
+    git 설치하고 git init 입력 .git파일 생성됨
+    파일 스테이징 -> git add 파일명 / 여러개 스테이징 git add .
+    파일에 대한 메모 -> git commit -m"메모할 내용"
+    git add, git commit을 같이 하려면? -> git commit -am"메세지"
+    git status -> git 상태창 보기 / git log -> git 정보보기
+
+    git commit 전에 현재 파일하고 이전파일하고 차이 확인하기
+    -> git difftool 바로전 commit 이랑 지금 commit이랑 차이점 알려줌
+    hjku 로 터미널 창에서 이동 가능. 
+    특정 commit하고 비교할때 -> git difftool commitID
+    현재 파일, 특정커밋 비교가능
+    git Graph 익스텐션 설치하면 difftool안쓰고도 쉽게 비교가능
+
+    git branch만들기
+       
