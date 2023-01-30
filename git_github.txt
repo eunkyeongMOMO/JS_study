@@ -14,4 +14,5 @@
     git Graph 익스텐션 설치하면 difftool안쓰고도 쉽게 비교가능
 
     git branch만들기
-       
+       git branch 브랜치명 ->브랜치 생성 
+       git switvh 브랜치명 ->해당 브랜치로 이동
