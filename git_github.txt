@@ -16,3 +16,8 @@
     git branch만들기
        git branch 브랜치명 ->브랜치 생성 
        git switvh 브랜치명 ->해당 브랜치로 이동
+
+    git branch merge
+
+    똑같은 파일에 똑같은 줄을 수정한 경우 문제가 생김
+    conflict 문제 발생시 원하는 코드만 남기고 git commit -am""해주면 됨
