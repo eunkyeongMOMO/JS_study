@@ -82,3 +82,54 @@ const object12 = {
 }
 
 object12.myfunction2();
+
+/** function 선언식, 
+let myFunction3 = function(){} 함수표현식
+1. 코드들을 기능으로 묶고싶을때
+2. 입출력기계를 만들고 싶을때 사용
+
+arrow function 장점
+1. 직관적으로 사용가능
+2. 파라미터가 1개일때 ()생략가능
+3. 코드가 한줄이면 {} 생략가능
+*/
+
+let arrowFunc = (a)=> {console.log(a+10);} 
+arrowFunc(15);
+
+
+
+/**
+arrow function 예시
+
+1. forEach 콜백함수
+*/
+let arr =[1,4,5,6,7];
+
+arr.forEach(a=>console.log(a))
+
+//이벤트리스너
+
+const Button2 = document.querySelector('#button2');
+
+Button2.addEventListener('click', 
+(e)=>{
+    this //this값을 정의해주지 않음. windoww로나옴
+    //특정값을 this값으로 사용하고싶으면 선언식쓰면됨
+})
+
+let object5 ={
+    func3 :()=>{return this}
+}
+object5.func3()
+//이경우에도 this값은 window로 나옴
+
+//문제1
+const Inner = document.querySelector('.inner'); 
+let people = {
+    name :'손흥민',
+    sayHi :function(){
+        Inner.innerHTML+=`<p>안녕 나는 ${this.name}</p>`
+    }
+}
+people.sayHi();
