@@ -227,7 +227,7 @@ console.log(a+b)//7
 for(let i=1; i <= 5; i++ ){
     setTimeout(()=>{console.log(i)}, i*1000);
 }
-//var->let으로 바꾸면됨
+//var->let으로 바꾸면됨 
 //문제7
 
 const modalBox = document.querySelectorAll('.modal');
@@ -246,3 +246,116 @@ for(let i=0; i<3; i++){
     })
 }
 //var->let으로 바꾸면됨
+
+//template literals ``사용하여 문자열을 표기하는것
+//엔터키사용가능, 변수넣기 좋음 
+
+let nyam=['심바','은경이','현이'];
+
+nyam.forEach((a)=>{
+    console.log(`안녕 내이름은 ${a}얌!`)
+})
+
+//tagged literal
+
+let myPet = 'SIMBA';
+
+function tagged(string,variable){
+    console.log(string);
+    console.log(variable);
+//예시, 글자 순서변경
+    console.log(string[1] + string[0])
+}
+
+
+tagged`우리집 강아지 이름은 ${myPet} 이고, 상당히 귀엽습니다`
+
+//`문자`를 해체할수 있음. 단어순서를 변경, 제거하거나 변수의 위치를 옮길수있음
+//함수(파라미터1[문자], 파라미터2[변수]))만들고 함수호출시``의 문자열을 넣어주면 문자들은 array로뽑아주고 변수는 따로 출력해줌
+//{}기준으로 나눔,
+
+
+//문제1
+
+let pants =20;
+let socks =100;
+console.log(`바지 ${pants} 양말 ${socks}`);
+//작성했는데 바지랑 양말의 갯수가 반대였다. 
+//이때 tagged literal을 이용하여 글자 순서를바꿔라
+
+let tagged2 = (string,...variable)=>{
+    console.log(`${string[1]}${variable[0]}  ${string[0]}${variable[1]}`);
+}
+tagged2`바지 ${pants} 양말${socks}`;
+
+//문제2 
+//pants가 0일때 솔드아웃으로 출력하기
+let tagged3 = (string,...variable)=>{
+    if(variable[0]==0){
+       console.log(`Pants SoldOut  ${string[0]}${variable[1]}`)
+    }else{ console.log(`${string[1]}${variable[0]}  ${string[0]}${variable[1]}`)}
+}
+pants=0;
+tagged3`바지 ${pants} 양말${socks}`;
+pants=2;
+tagged3`바지 ${pants} 양말${socks}`;
+
+
+/**spread operator[펼침연산자] */
+
+//array에 사용시 대괄호 제거
+
+let array3=['hellow','world']
+console.log(array3);//['hellow','world']
+console.log(...array3);//hellow world
+
+//예시
+
+let m = [1,2,3]
+let o = [4,5]
+let mo = [...m,...o]
+console.log(mo);
+
+//array deep copy시 주로 사용함
+let mm = [1,2,3];
+let mmoo = [...mm];
+mm.push(5,9)
+console.log(mm);
+console.log(mmoo);
+//문자열에 사용시
+
+let string2 ='hello';
+console.log(string2);//hello
+console.log(...string2); //h e l l o
+
+//object에 사용시
+
+let object77 ={a:1, b:2};
+let object88 ={...object77, c:9, d:7};
+
+console.log(object88);//{a: 1, b: 2, c: 9, d: 7}
+
+//값 중복시 ->뒤에 온게 최종값이 됨.
+
+//힘수에 파라미터 넣을때 사용
+
+function plusplus(a,b,c){
+    console.log( a+b+c );
+}
+let num=[10,50,20];
+plusplus(...num);
+plusplus.apply(undefined, num);
+
+//apply,call-> 함수옮겨오는거 파라미터를 넣읗때 함수.apply/call(적용할 함수명, 파라미터)
+//apply array 형대 가능 call은 불가능 
+
+let parson ={
+    hi: function(){
+        console.log( this.name + 'hi!!!!!hello!');
+    }
+}
+let parson2 ={
+    name:'simmbaaaa'
+}
+parson.hi()
+parson.hi.apply(parson2);
