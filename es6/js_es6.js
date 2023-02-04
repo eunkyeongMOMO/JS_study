@@ -71,7 +71,7 @@ button.addEventListener('click', function(e){
 const object12 = {
     names:['kim','lee','park'],
     myfunction2: function(){
-        console.log(this);//함수를 가지고 있는 오브젝트
+        console.log(this); //함수를 가지고 있는 오브젝트
        object12.names.forEach(()=>{
         console.log(this);
        })//arrow function을 쓰면 this값은 상위에 this 값을 상속받아 오브젝트임
@@ -84,7 +84,7 @@ const object12 = {
 
 object12.myfunction2();
 
-/** function 선언식, 
+/** function 선언식, 호이스팅됨
 let myFunction3 = function(){} 함수표현식
 1. 코드들을 기능으로 묶고싶을때
 2. 입출력기계를 만들고 싶을때 사용
@@ -95,7 +95,7 @@ arrow function 장점
 3. 코드가 한줄이면 {} 생략가능
 */
 
-let arrowFunc = (a)=> {console.log(a+10);} 
+let arrowFunc = (a)=> { console.log(a+10);} 
 arrowFunc(15);
 
 
@@ -115,22 +115,47 @@ const Button2 = document.querySelector('#button2');
 
 Button2.addEventListener('click', 
 (e)=>{
-    this //this값을 정의해주지 않음. windoww로나옴
-    //특정값을 this값으로 사용하고싶으면 선언식쓰면됨
+   console.log (this); //this값을 정의해주지 않음. 상위값을 상속받아서 나옴->windoww로나옴
+    //e.currentTarget을 this값으로 사용하고싶으면 선언식쓰면됨
+console.log(e.currentTarget);
 })
 
 let object5 ={
-    func3 :()=>{return this}
+    func3 :()=>{console.log(this)}
 }
 object5.func3()
 //이경우에도 this값은 window로 나옴
 
-//문제1
+//문제 1
 const Inner = document.querySelector('.inner'); 
 let people = {
-    name :'손흥민',
+    name :'심바아아아',
     sayHi :function(){
         Inner.innerHTML+=`<p>안녕 나는 ${this.name}</p>`
     }
 }
 people.sayHi();
+//문제 2
+//data안에 모든 숫자를 더해서 콘솔창에 출력하시오. dataObject 안에 코드작성금지.
+let dataObject={
+    data:[1,2,3,4,5]
+}
+dataObject.plus = function(){
+    let hap = 0;
+    this.data.forEach(
+        (a)=>{
+            hap+=a;
+       
+        })
+   console.log(hap);
+}
+dataObject.plus()
+//문제3 setTimeout
+const Button3 = document.querySelector('.button3');
+Button3.addEventListener(
+    'click',function(){
+        setTimeout(()=>{
+            console.log(this.innerHTML)
+        },1000)
+    }
+)
