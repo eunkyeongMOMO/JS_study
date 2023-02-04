@@ -159,3 +159,90 @@ Button3.addEventListener(
         },1000)
     }
 )
+
+/**변수정리(var. let, const)
+        선언    할당    범위
+var -> 가능     가능    function
+let ->불가능    가능    {}
+const ->불가능  불가능  {}
+
+호이스팅 -> 변수의 선언을 변우 범위 맨위로 끌고오는 현상
+변수 동시에 여러개 만들기 -> ,로 구문하여 여러개 생성가능
+전역변수 -> 모든 곳에서 쓸 수 있는 변수[global]  
+        window.변수명 ="값";으로도 전역변수 선언가능[권장하는 방식]
+*/
+//Object.freeze(ObjectName) -> 오브젝트 안 메소드 값도 변경 절대 불가능함 
+
+
+//문제1 
+
+if(true){
+    let a = 1;
+    var b = 2;
+    if(true){
+        let b =3;
+        console.log(b) //3
+    }
+    console.log(b) // 2
+}
+//문제2
+// myFunction5();
+
+// function myFunction5(){
+//     console.log(hi);
+//     let hi = hellow;
+// } 
+
+//콘솔창에 뭐라고 출력됨? 에러남
+
+//문제3
+// myFunction5();
+
+// var myFunction5 = function(){
+//     console.log(hi);
+//     var hi = hellow;
+// } 
+// //에러남
+
+//문제4
+let a =1;
+var func4 =function(){
+    a = 2;
+}
+console.log(a); //1
+
+//문제5
+let s = 1
+var g = 2;
+window.s = 4;
+window.g = 3;
+console.log(a+b)//7 
+
+//문제6
+// for(var i=1; i <= 5; i++ ){
+//     setTimeout(()=>{console.log(i)}, i*1000);
+// }
+//-> 해당코드 출력시 5만 연속하여 출력되는데 해결방법은?
+
+for(let i=1; i <= 5; i++ ){
+    setTimeout(()=>{console.log(i)}, i*1000);
+}
+//var->let으로 바꾸면됨
+//문제7
+
+const modalBox = document.querySelectorAll('.modal');
+const modalButton = document.querySelectorAll('.modalButton');
+
+// for(var i=0; i<3; i++){
+//     modalButton[i].addEventListener('click', ()=>{
+//         modalBox[i].style.display='block';
+//     })
+// }
+//왜실행안되는지 맞춰라
+
+for(let i=0; i<3; i++){  
+    modalButton[i].addEventListener('click', ()=>{
+        modalBox[i].style.display='block';
+    })
+}
+//var->let으로 바꾸면됨
