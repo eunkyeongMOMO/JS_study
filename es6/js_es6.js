@@ -1,5 +1,6 @@
 //'use strict';
 //strict mode -> 좀더 엄격하게 사용할 수 있음
+//var, let, const안쓰고 변수설정불가
 
 console.log(this);
 //this -> window
@@ -7,7 +8,8 @@ console.log(this);
 function myFuncttion(){
     console.log(this);
 }
-myFuncttion()
+myFuncttion();
+window.myFuncttion();
 //일반 함수안에 this -> window
 //strict mode -> undefined로 뜸
 
@@ -43,26 +45,25 @@ object2.data.function3();
 
 //constructor
 
-function constructorFunction(){
+function ConstructorFunction(){
     this.name = 'kim' 
     //instance
-    
 }
-
-let object4 = new constructorFunction();
+let object4 = new ConstructorFunction();
 
 console.log(object4); //name:kim으로 출력됨
 
-
 const button = document.querySelector('#button');
-button.addEventListener('click', function(){
-    this; 
+button.addEventListener('click', function(e){
+    console.log(e.currentTarget);
+    console.log(this); 
     //e.currentTarget이랑 같은 의미로 사용가능함
     //이벤트리스너에 사용시 지금 이벤트가 일어난 노드를 가르킨다.
 
     let array = [3,66,78,40];
     array.forEach(function(a){
-        console.log(this);//window로 출력됨
+        console.log(a);
+        console.log(this); //window로 출력됨
     })
     //함수가 쓰인 위치에 따라 this겂아 버뀜.
 })
