@@ -424,4 +424,3 @@ function hamsu (aa=5, b=aa+1){
 hamsu(undefined,undefined);
 // NaN
 
-
