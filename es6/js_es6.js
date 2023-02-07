@@ -359,3 +359,69 @@ let parson2 ={
 }
 parson.hi()
 parson.hi.apply(parson2);
+
+
+
+//arguments
+//단점, 득정 파파미터만 분활하여 출력 불가능
+let arg = (a,b,c) => {
+    for (let i =0; i<= arguments.length; i++){
+        console.iog(arguments[i]);
+    }
+}
+
+//Rest 파라미터 -> 파라미터들을 모두 []에담아줌
+//특정지어서 사용할수있음 [장점]
+
+let rest1 = (a,b,...rest)=>{
+    console.log(rest);
+}
+
+rest1(1,2,3,4,5,6) // 3,4,5,6만 출력됨
+//rest는 맨 마지막에 써야하며 한번만 사용가능하다.
+//문제1
+
+let rest2 = (...rest)=>{
+    for(let i =0; i<rest.length; i++){
+        console.log(rest[i]);
+    }
+}
+
+rest2(55,66,7,8,09,44,66,34);
+
+
+//문제2 spread
+
+let aaa =[1,2,3];
+let bbb ='이심바';
+let ccc =[...aaa, ...bbb]; //출력 결과
+
+// ccc = [1,2,3,'이','심','바'];
+
+//문제3
+
+var a1 =[1,2,3];
+var a2 =['you','are'];
+var a3 = (a1,a2)=>{
+    console.log([[...a1],...[...a2]])
+}
+a3(a1,a2);
+//[1,2,3],'you','are';
+
+//문제4 default
+
+function de(a=5, b= a*2){
+    console.log(a+b);
+    return 10;
+}
+de(3);
+//9
+
+//문제5 
+function hamsu (aa=5, b=aa+1){
+    console.log(aa+b);
+}
+hamsu(undefined,undefined);
+// NaN
+
+
