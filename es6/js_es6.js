@@ -424,3 +424,36 @@ function hamsu (aa=5, b=aa+1){
 hamsu(undefined,undefined);
 // NaN
 
+//constructor -> 오브젝트를 여러개 생성할때사용
+
+function Student(name, age)
+{ this.name = name, 
+    this.age = age,
+    this.sayHi =function(){
+        console.log('안녕하세요'+this.name+'입니다');} }
+
+let stu1 = new Student('simba',5);
+let stu2 = new Student('baba',6);
+console.log(stu1);
+console.log(stu2);
+
+stu1.sayHi();
+//사용 할 일 별로없음
+
+//문제1.
+
+function Product(name, price){
+    this.name = name , this.price = price
+    this.vat = function(){
+        let vat=(this.price*0.1) + this.price;
+        console.log(vat);
+    }
+}
+
+let produt01 = new Product('shirts',50000);
+let produt02 = new Product('pants',60000);
+
+console.log(produt01);
+console.log(produt02);
+produt01.vat();
+produt02.vat();
