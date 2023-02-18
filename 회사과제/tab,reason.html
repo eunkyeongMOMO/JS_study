@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./tab,reason.css">
+    <title>기본 UI Vanilla로 짜기</title>
+</head>
+<body>
+    <div class="reason">
+    회사거랑 다른건 회사는 폰트/디자인의 문제로 이미지위에 position을 이용하여 잡아야한다. 
+    이때, 전체 content를 감싸고있는 박스에 기본적으로 relative를 주고 ul, li 둘 다 absolute를주면
+    li영역이 겹치기때문에 ul-> display : flex 속성값을 줘야함.  
+    </div>
+    
+    <ul class="hover_tab">
+            <li class="tab">TAB01</li>
+            <li class="tab">TAB02</li>
+            <li class="tab">TAB03</li>
+            <li class="tab">TAB04</li>
+    </ul>
+    <ul class="derail_box">
+        <li class="detail">
+            text01<br>
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </li>
+        <li class="detail">
+            text02<br>
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </li>
+        <li class="detail">
+            text03<br>
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </li>
+        <li class="detail">
+            text04<br>
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </li>
+    </ul>
+    <script src="./tab,reason.js"></script>
+</body>
+</html>
