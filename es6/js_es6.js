@@ -427,6 +427,7 @@ hamsu(undefined,undefined);
 //constructor -> 오브젝트를 여러개 생성할때사용
 
 function Student(name, age)
+//반드시 첫글자 대문자로 작성.
 { this.name = name, 
     this.age = age,
     this.sayHi =function(){
