@@ -110,7 +110,7 @@ let cat02 = new Cat('듀이','white');
 console.log(cat01, cat02);
 
 
-//문제3
+//문제4
 
 class Unit{
     constructor(){
@@ -121,11 +121,35 @@ class Unit{
         return this.strength + this.offensive;
     }
     set heal(strength){
-       this.strength + strength;
+        let heal= this.strength + strength;
+        console.log(heal);
     }
 }
 
 let unit01 = new Unit();
 console.log(unit01.battlePoint);
-console.log(unit01.heal = 50);
+unit01.heal = 50;
+
+//문제5
+
+let data = {
+    odd : [], 
+    even:[],
+    set oddEven(number){
+        if(number%2 == 0){this.even.push(number)}
+        else{this.odd.push(number)}
+        console.log(this.odd,this.even);
+    },
+    get sortArrey(){
+        number=[...this.odd,...this.even];
+        return number.sort();
+    }
+
+}
+//setter함수 ->함수에 파라미터로 아무 자연수나 입력하면 홀수짝수 나눠져서 입력되야함
+data.oddEven=5;
+data.oddEven=9;
+data.oddEven=2;
+//getter함수 -> odd, even에있는 모든 숫자내림차순으로 정렬되어 한 배열로 출력
+console.log(data.sortArrey);
 
