@@ -1,9 +1,3 @@
-// prototype -> script에만 있는 문법
-//constuctor를 만들면 자동으로 만들어지는 공간.
-//값을 추가하면 유전자처럼 모든 자식들이 물려받아사용가능
-//prototype은 함수에만 생성됩니다.
-
-
 function MyPet(name, age){
     this.name ='심바';
     this.age =4;
@@ -16,7 +10,10 @@ MyPet.prototype.walk='집가';
 let dog1 =new MyPet('simbaa',5);
 let dog2 =new MyPet('nana',12);
 console.log(dog1,dog2)
-
+// prototype -> script에만 있는 문법
+//constuctor를 만들면 자동으로 만들어지는 공간.
+//값을 추가하면 유전자처럼 모든 자식들이 물려받아사용가능
+//prototype은 함수에만 생성됩니다.
 dog1.sayHi();
 dog2.sayHi();
 
@@ -55,4 +52,15 @@ let a = new Parent();
 a.__proto__.name = "park";//부모 name= 'park'을추가하는것
 console.log(a.name);
 //-> 이때 뭐라고 풀력될까? 정답은 kim. 원래가지고 있는걸 먼저 읽음
+
+//es5 -> Objext.create()
+
+let parent = {name : 'kin', age:50 };
+let child = Object.create(parent);
+
+console.log(child);
+console.log(child.name);
+
+//child 나이바꾸고싶을때 
+child.age =20;
 
