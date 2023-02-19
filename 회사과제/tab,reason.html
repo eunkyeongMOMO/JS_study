@@ -8,7 +8,7 @@
     <title>기본 UI Vanilla로 짜기</title>
 </head>
 <body>
-    <div class="reason">
+    <div class="text">
     회사거랑 다른건 회사는 폰트/디자인의 문제로 이미지위에 position을 이용하여 잡아야한다. 
     이때, 전체 content를 감싸고있는 박스에 기본적으로 relative를 주고 ul, li 둘 다 absolute를주면
     li영역이 겹치기때문에 ul-> display : flex 속성값을 줘야함.  
@@ -38,6 +38,20 @@
             but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
         </li>
     </ul>
+
+
+    <!-- reason popup + 이벤트 버블링-->
+    <div class="reson_box">
+        <a class="reasonBtn" href="#" alt="">안내문구 보기</a>
+        <div class="reason">
+            너무 열심히사는거 같지도 않은데 왜 착각해. 
+            더열심히 살아야하는데? 독하게 좀 사세요
+            <span class="reason_close"></span>
+        </div>
+    </div>
+    <div class="reason_bg"></div>
+
+    
     <script src="./tab,reason.js"></script>
 </body>
 </html>
