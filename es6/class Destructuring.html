@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class문법</title>
+</head>
+<body>
+    <script src="class.js"></script>
+    <script src="./find.js"></script>
+    <script type="module">
+        import momo,{lib, simba} from './library.js'
+        //디폴트로 export를 한거는 맨 앞에 붙어야함.
+        //변수명 바꾸고 싶을때는 import{변수,함수명 as 작명}from '경로'
+
+        //*로 모든 걸 가져올수 있음 import {* as 작명}from '경로' 
+        //작명.변수명; -> 디폴트로 내보낸거는 이렇게 못씀
+        
+        //import 가져올것(디폴트아닌경우에는 이름 같게해야함.) from '경로' 
+        //모든걸 가져오는게 아니고 특정한 변수, 함수만 가져오는것
+
+        //IE에서는 작동안됨. -> 걍 src로 가져다 쓰는게 맘편함
+    console.log(lib,simba,momo)
+    </script>
+</body>
+</html>

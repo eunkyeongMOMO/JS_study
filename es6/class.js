@@ -87,13 +87,20 @@ let People3 = new People2();
 console.log(People3.getAge);
 People3.setAge=35;
 
-//문제1.
+//문제1, 문제3
 
 class Dog{
     constructor(type, color){
         this.type=type;
         this.color = color;
     }
+    nextAge(){
+        if( this instanceof Cat){
+            console.log(this.age+1);
+        }
+    }
+    //instanceof 연산자를 사용하면 객체가 특정 클래스에 속하는지 
+    //아닌지를 확인할 수 있습니다. instanceof는 상속 관계도 확인해줍니다.
 }
 let dog01 = new Dog('포메라니안','brown');
 let dog02 = new Dog('말티즈','white');
@@ -101,14 +108,15 @@ console.log(dog01, dog02);
 //문제2
 
 class Cat extends Dog{
-    constructor(type,color){
+    constructor(type,color,age){
         super(type,color);
+        this.age=age;
     }
 }
-let cat01 = new Cat('러시안블루','gray');
-let cat02 = new Cat('듀이','white');
+let cat01 = new Cat('지고','black',3);
+let cat02 = new Cat('듀이','white',5);
 console.log(cat01, cat02);
-
+cat01.nextAge();
 
 //문제4
 
