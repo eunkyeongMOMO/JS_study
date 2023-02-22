@@ -105,5 +105,65 @@ promise4
 //fetch()함수를 실행하고 나면 그 결과값으로 promise값이 남기때문에
 //then, catch등을 쓸수있다.
 
+//문제1.이미지가 로딩성공시 콘솔창에 성공, 실패시 실팰르 출력
+const Img = document.querySelector('#test');
+const ImgLoad = new Promise(
+    (resolve, reject)=>{
+        Img.addEventListener('load',()=>{resolve()});
+        Img.addEventListener('error',()=>{reject()});
+    })
+ImgLoad
+.then(()=>{console.log('성공했습니다.')})
+.catch(()=>{console.log('실패했습니다.')})
+.finally(()=>{console.log('이미지 로드가 끝났습니다.')})
+
+//문제2
+
+const ajaxPromise = new Promise((resolve, reject)=>{
+    $.ajax({
+    tyoe:'GET',
+    url:'https://codingapple1.github.io/hello.txt'})
+    .done((value)=>{resolve(value)})
+})
+ajaxPromise.then((value)=>{console.log(value)})
+
+//2번문제 Vanilla로 짜보기
+
+const ajaxVanilla = new Promise((resolve, reject)=>{
+    let xhr = new XMLHttpRequest();
+        //요청방식, 요청할 url, 비동기여부
+        xhr.open('GET','https://codingapple1.github.io/hello.txt', true);
+        //요청전송
+        xhr.send()
+        //onload callback 함수처리;
+        xhr.onload= ()=>{
+            if (xhr.status == 200){
+                //성공했을때의 전송받은 값 파라미터로 전달
+                resolve(xhr.response);
+            }
+    }
+})
 
 
+.then((value)=>{
+    console.log(value);
+
+    const ajaxVanilla2 = new Promise((resolve, reject)=>{
+        let xhr = new XMLHttpRequest();
+        //요청방식, 요청할 url, 비동기여부
+        xhr.open('GET','https://codingapple1.github.io/hello2.txt', true);
+        //요청전송
+        xhr.send()
+        //onload callback 함수처리;
+        xhr.onload= ()=>{
+            if (xhr.status == 200){
+                //성공했을때의 전송받은 값 파라미터로 전달
+                resolve(xhr.response);
+            }
+        }})
+        //왜 이거는 리턴을 해야하지? -> 리턴해야지 값이남아서 다음 then으로 전달되니까.
+        return ajaxVanilla2;
+})
+.then((value2)=>{
+    console.log(value2)
+})
