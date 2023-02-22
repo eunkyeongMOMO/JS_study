@@ -127,7 +127,12 @@ const ajaxPromise = new Promise((resolve, reject)=>{
 })
 ajaxPromise.then((value)=>{console.log(value)})
 
-//2번문제 Vanilla로 짜보기
+const ajaxFunction = (url)=>{
+
+
+}//2번문제 Vanilla로 짜보기
+
+
 
 const ajaxVanilla = new Promise((resolve, reject)=>{
     let xhr = new XMLHttpRequest();
