@@ -129,10 +129,8 @@ solution8(22);
 const Answer9 = document.querySelector('.answer09');
 const solution9 = (my_string,num) =>{
     let str='';
-    let newString = [...my_string];
-    console.log(newString);
-    for(let i=0; i<=newString.length; i++){
-            str += newString[i].repeat(num);
+    for(let i=0; i<=my_string.length; i++){
+            str += my_string[i].repeat(num);
     }
     Answer9.innerHTML=str;
    
