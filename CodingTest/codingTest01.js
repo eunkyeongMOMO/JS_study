@@ -2,61 +2,48 @@
 
 const Answer1 = document.querySelector('.answer01');
 
-const solution = (array, num)=>{
+const solution1 = (array, num)=>{
     let cnt=0;
     for(let i=0; i<=array.length; i++){
         if(array[i] === num){cnt++;}
     }
     Answer1.innerHTML = '1. 배열속 두번째 파라미터 N의 갯수는? ' + cnt +'<br>';
 }
-solution([3,6,9,7,3,6,5],3);
+solution1([3,6,9,7,3,6,5],3);
 
 //문제1번 내장함수 filter 써서 하는 방법
 
-const solution2 = (array, num)=>{
+const solution1_1 = (array, num)=>{
     let cnt = array.filter(el => num === el).length;
     let filter = array.filter(el => num === el);
     let nofilter = array.filter(el => num !== el);
     Answer1.innerHTML += `2. 필터된 배열[${filter}], 배열속 두번째 파라미터 N의 갯수${cnt}, N을 뺀 나머지 배열 [${nofilter}]`
 }
 
-solution2([3,6,9,7,3,6,5],3);
+solution1_1([3,6,9,7,3,6,5],3);
 
+//문제2번 
 
+const Answer2 =document.querySelector('.answer02');
 
+const solution2= (array, height) => {
+    let long =0
+    for(let i = 0; i<=array.length; i++){
+        if(array[i]> height){
+            long++
+        }
+    }
+    Answer2.innerHTML = `머쓱이보다 큰 아이는 총 ${long}명입니다.<br>`;
+}
+solution2([170,130,166,158,197,110],152);
 
+//filter사용해서 걸러내기
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//문제2번 1번과 유사하여 저녁에 위에꺼 안보고 다시 쳐볼것
-
-
+const solution2_1 =(array,height)=>{
+    let long = array.filter(el=> height< el).length;
+    Answer2.innerHTML += `머쓱아 키좀커라 너보다 큰애들이 ${long}명이나 있단다.`
+}
+solution2_1([170,130,166,158,197,110],152);
 
 //문제3번 더하기, 빼기, 곱하기, +나누기
 const Answer3 = document.querySelector('.answer03');
@@ -91,3 +78,68 @@ const solution5 = (array)=>{
 }
 
 Answer5.innerHTML = solution5([5,7,3,6,8])
+
+//문제6
+const Answer6 = document.querySelector('.answer06');
+
+const solution6 = (people) => {
+    let pizza = Math.ceil(people / 7) ;
+    //round반올림, ceil올링, floor내림
+    Answer6.innerHTML=`지금 사람은 ${people}명이고 피자는 7조각씩 오니까 ${pizza}판을 시켜야함`
+}
+solution6(15);
+
+//문제7
+const Answer7 = document.querySelector('.answer07');
+const solution7 = (price) =>{
+    let finalPrice=0;
+    let sale=0;
+    if(price > 500000){
+        finalPrice = price*0.8;
+        sale =20;
+    }else if(price > 300000){
+        finalPrice = price*0.9;
+        sale =10;
+    }else if(price > 100000){
+        finalPrice = price*0.95;
+        sale =5;
+    }else if(price < 100000){
+        finalPrice = price;
+        sale =0;
+    }
+    Answer7.innerHTML += `지금 구매한 옷의 원래 가격은 ${price}인데 
+    ${sale}% 할인해서 최종가격은 ${finalPrice}입니다.<br>`
+}
+solution7(795000);
+solution7(325000);
+solution7(129000);
+solution7(90000);
+
+//문제8
+const Answer8 = document.querySelector('.answer08');
+const solution8 = (age) =>{
+    let birthYear = 2023 - (age-1);
+    Answer8.innerHTML += `지금 나이는 ${age}이고 태어난연도는 ${birthYear}년이다<br>`;
+}
+solution8(33);
+solution8(40);
+solution8(22);
+
+//문제9
+const Answer9 = document.querySelector('.answer09');
+const solution9 = (my_string,num) =>{
+    let str='';
+    let newString = [...my_string];
+    console.log(newString);
+    for(let i=0; i<=newString.length; i++){
+            str += newString[i].repeat(num);
+    }
+    Answer9.innerHTML=str;
+   
+}
+solution9('simba',3);
+//리핏함수에서 에러남..왜안되는지 이유를 모르겠음. 머리과부하걸림 짜증남. 
+
+//문제10
+const Answer10 = document.querySelector('.answer10');
+const solution10 = () =>{}
