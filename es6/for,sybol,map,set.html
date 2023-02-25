@@ -5,9 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for,symbol,map,set</title>
+    <style>
+        custom-input{display: block; margin: 20px auto;}
+        custom-input label{display: block; margin-bottom: 10px;}
+    </style>
 </head>
 <body>
     <script srcs="./for.js"></script>
     <script src="./symbol,map,set.js"></script>
+
+    <custom-input name="Name"></custom-input>
+    <custom-input name="age"></custom-input>
+    <shadow-input></shadow-input>
+    <div class="shadow"></div>
+    <todo-ul></todo-ul>
+
+    
+    <template id="todoTem">
+        <ul>
+            오늘 해야하는것
+            <li></li>
+            <li>ES6 인강 완강</li>
+            <li>코테 문풀 5개</li>
+            <li>정처기 인강 2개?</li>
+        </ul>
+        <style>ul{list-style-type: none; font-size: 1.25rem; font-weight: 700; color:#333;}
+            li{margin-bottom: 10px; font-size: 1rem;}</style>
+    </template>
+    <script src="./components,modul.js"></script>
 </body>
 </html>
