@@ -2,5 +2,11 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-    }
+        "noImplicitAny":true, //Any타입이 의도치않게 발생했을때 에러띄워주는 속성
+        "strictNullChecks":true, //null,undefined타입을 조작하려고하면 에러나는 속성
+        "allowJs": true,//js파일 ts에서 import해서 사용할지 여부
+        "checkJs": true,//일반 js파일에서도 에러체크여부
+        "declaration": true, //컴파일시 .d.ts파일도 생성 [타입모아두는파일]
+        "noUnusedLocals": true, //쓰지않는 local변수 있으면 에러
+        }
 }
