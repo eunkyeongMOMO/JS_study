@@ -128,16 +128,24 @@ solution8(22);
 //문제9
 const Answer9 = document.querySelector('.answer09');
 const solution9 = (my_string,num) =>{
-    let str='';
-    for(let i=0; i<=my_string.length; i++){
-            str += my_string[i].repeat(num);
-    }
-    Answer9.innerHTML=str;
-   
+    // for(let i=0; i<=my_string.length-1; i++){
+    //    for(let j=0; j=num; j++){    
+    //       // Answer9.innerHTML+=my_string[i];
+    // }}
 }
 solution9('simba',3);
 //리핏함수에서 에러남..왜안되는지 이유를 모르겠음. 머리과부하걸림 짜증남. 
 
 //문제10
 const Answer10 = document.querySelector('.answer10');
-const solution10 = () =>{}
+const solution10 = (my_string) =>{
+    const regex = /[^0-9]/g;
+    const result =my_string.replace(regex,'');
+    const array= [...result].sort((a,b)=>{return a - b}); 
+    Answer10.innerHTML= my_number;
+}
+
+solution10('hello920,simbaaa2056');
+
+//문제11
+
