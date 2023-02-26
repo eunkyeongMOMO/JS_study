@@ -33,6 +33,11 @@ declare let shcool: {
     teacher: string;
     ftiend: string | string[];
 };
+declare const my_function2: (num: number) => number;
+declare const my_function3: (name?: string) => void;
+declare const NamePrint: (name?: string) => void;
+declare const Number_length: (number: number) => void;
+declare const marriage: (salary: number, aprtm: boolean, charm: string) => void;
 declare let person: {
     name?: string;
 };

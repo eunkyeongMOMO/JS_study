@@ -67,10 +67,60 @@ let shcool:{score:(boolean|number)[], teacher:string, ftiend:string|string[]} ={
 shcool.score[4] =false;
 shcool.ftiend=['lee',shcool.teacher];
 
+//함수에 타입 지정하는법, vuoid타입
 
+const my_function2 =(num :number) :number =>{
+    return num *5;
+}
 
+//return 값이 없을때 or return하고 싶지 않을때 ---> void
 
+const my_function3 =(name?:string) :void=>{
+    
+}
+//파라미터가 입려되지 않으면 에러가 나는데 이렇때 ?를 쓰면 에러가안남
+//변수?:string -> 변수:string|undefined 인 uniontype임
 
+//문제 1. 이름을 파라미터로 입력하면 콘솔창에 "안녕하세요 홍길동"을 출력해주고
+//아무것도 파라미터로 입력하지 않고 함수를 사용하면 "이름이 없습니다" 를 출력하는 함수를 만들어봅시다.
+//파라미터와 return 타입지정도 잘 해봅시다. 
+
+const NamePrint = (name?:string)=>{
+    if(name!==undefined){
+        console.log(`안녕하세요! 제 이름은 ${name}입니다.`);
+    }else{console.log('이름이없어용')}
+}
+
+NamePrint('은경');
+NamePrint();
+
+//문제2함수에 숫자 또는 문자를 집어넣으면 자릿수를 세어 출력해주는 함수를 만들어보십시오.
+const Number_length = (number:number)=>{
+    let numberTostring = number.toString();
+    let numlength = Number(numberTostring.length);
+    console.log(`입력한 숫자는 ${number}이며, 자릿수는 ${numlength}입니다.`);
+}
+
+Number_length(2536897);
+
+//문제3 결혼 가능 확률을 알려주는 함수를 만들어봅시다. 
+//월소득(만원단위), 집보유여부(t/f), 매력점수 상중하->상일때만 100점;
+const marriage = (salary:number, aprtm:boolean, charm:string)=>{
+    let total:number =0
+    let aprtmScore =0;
+    let charmScore =0;
+    if(aprtm===true){
+        aprtmScore = 500;
+    }else(aprtmScore = 0);
+    if(charm==='상'){charmScore=100;} else{charmScore=0}
+    total=salary+aprtmScore+charmScore;
+    if(total>600){
+        console.log(`당신의 총점은 ${total}점 으로 결혼 할 수 있습니다.`)
+    }else{console.log(`당신의 총점은 ${total}점 으로 결혼 못해!못해!`)}
+}
+
+marriage(300, false, '상');
+marriage(250, true, '하');
 
 
 let person:{name?: string} = {name : 'momo'}
