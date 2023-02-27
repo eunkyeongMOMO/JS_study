@@ -66,6 +66,8 @@ let shcool:{score:(boolean|number)[], teacher:string, ftiend:string|string[]} ={
 }
 shcool.score[4] =false;
 shcool.ftiend=['lee',shcool.teacher];
+let person:{name?: string} = {name : 'momo'}
+//?를 넣으면 옵션속성이 된다 (입력될수도 있고 입력 안될수도 있는 키)
 
 //함수에 타입 지정하는법, vuoid타입
 
@@ -123,11 +125,78 @@ marriage(300, false, '상');
 marriage(250, true, '하');
 
 
-let person:{name?: string} = {name : 'momo'}
-//?를 넣으면 옵션속성이 된다 (입력될수도 있고 입력 안될수도 있는 키)
+//Narrowing -> type이 아직 하나로 확정되지 않았을경우
+//어떤 변수가 타입이 아직 불확실하면 if문등으로 narrowing해줘야 조작가능
+const narrowing = (x:number|string)=>{
+    // if(typeof x ==='string'){ //typeof를 쓰면 변수타입을 *문자열로 반환해줌
+    //      return x+'1'; }
+    //    else{return x+1;}
+    let array :number[] = [];
+    if(typeof x === 'number'){
+        array[0] = x;
+    } 
+    //typeof / 속성명 in 오브젝트 / 인스턴스 instanceof 부모 <- 해당 문법들로 narrowing가능
+}
 
+// assertion 타입덮어쓰는 문법
 
+const assertion = (x:number|string)=>{
+    let array : number[] =[];
+    array[0] = x as number;
+    //변수 x를 number타입으로 덮어줌
+    //옛날 문법 <number>변수
+    //1. unionType 인 변수만!!!! narrowing할때 씁니다.
+    //2.무슨 타입이 들어올지 100%확실할때 쓰세요.(굳이 쓸필요없음. 버그 추적못함...!)
+}
+/** 
+문제1  숫자여러개를 array 자료에 저장해놨는데
+가끔 '4', '5' 이런 식의 문자타입의 숫자가 발견되고 있습니다.
+이걸 클리닝해주는 함수가 필요합니다. 
+클리닝함수( ['1', 2, '3'] ) 이렇게 숫자와 문자가 섞인 array를 입력하면
+[1,2,3] 이렇게 숫자로 깔끔하게 변환되어 나오는 클리닝함수를 만들어오고 타입지정까지 확실히 해보십시오
+*/
 
+const array_cleaning =(array : (number|string)[])=>{
+    let new_array: number[] = [];
+    array.forEach((number)=>{
+        if(typeof number === 'string'){
+           new_array.push(Number(number)) ;
+        }else {new_array.push(number)}
+    })
+    console.log(`claening after : ${new_array}, ${typeof new_array[2]}`);
+}
+array_cleaning([1,3,'33',44,5,7,8,'98']);
+
+//왜 for문은 안대? 돼야지?
+
+// const array_cleaning02 = (array:(number|string)[])=>{
+//     let new_array:number[] =[];
+//     for(let i=0; i<=array.length; i++){
+//         if(typeof array[i]==='string'){
+//             new_array.push(Number(array[i]))
+//         }else{new_array.push(array[i])}
+//     }
+//     console.log(`claening after : ${new_array}, ${typeof new_array[2]}`);
+// }
+// array_cleaning02([1,3,'33',44,5,7,8,'98']);
+
+/**
+그 선생님이 가르치고 있는 과목중 맨 뒤의 1개를 return 해주는 함수를 만들어봅시다.
+ */
+let teacher01= { subject : 'math' }
+let teacher02= { subject : ['science', 'english'] }
+let teacher03= { subject : ['science', 'art', 'korean'] }
+
+const subject_return =(teacher:{subject:string|string[]})=>{
+    if(typeof teacher.subject ==='string'){
+        console.log(`선생님이 가르치는 과목은 ${teacher.subject}`)}
+        else if(Array.isArray(teacher.subject)){
+            console.log(`선생님이 가르치는과목은 ${teacher.subject.length}개 이고, 그중 마지막 과목은 ${teacher.subject[teacher.subject.length-1]}입니다.`)
+        }
+    }
+    subject_return(teacher01);
+    subject_return(teacher02);
+    subject_return(teacher03);
 type TypeSN = string|number;
 //타입이 길다면? -> 타입을 변수로 지정해서 사용
 let time:TypeSN ="11시";

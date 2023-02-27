@@ -45,6 +45,8 @@ var shcool = {
 };
 shcool.score[4] = false;
 shcool.ftiend = ['lee', shcool.teacher];
+var person = { name: 'momo' };
+//?를 넣으면 옵션속성이 된다 (입력될수도 있고 입력 안될수도 있는 키)
 //함수에 타입 지정하는법, vuoid타입
 var my_function2 = function (num) {
     return num * 5;
@@ -101,7 +103,75 @@ var marriage = function (salary, aprtm, charm) {
 };
 marriage(300, false, '상');
 marriage(250, true, '하');
-var person = { name: 'momo' };
+//Narrowing -> type이 아직 하나로 확정되지 않았을경우
+//어떤 변수가 타입이 아직 불확실하면 if문등으로 narrowing해줘야 조작가능
+var narrowing = function (x) {
+    // if(typeof x ==='string'){ //typeof를 쓰면 변수타입을 *문자열로 반환해줌
+    //      return x+'1'; }
+    //    else{return x+1;}
+    var array = [];
+    if (typeof x === 'number') {
+        array[0] = x;
+    }
+    //typeof / 속성명 in 오브젝트 / 인스턴스 instanceof 부모 <- 해당 문법들로 narrowing가능
+};
+// assertion 타입덮어쓰는 문법
+var assertion = function (x) {
+    var array = [];
+    array[0] = x;
+    //변수 x를 number타입으로 덮어줌
+    //옛날 문법 <number>변수
+    //1. unionType 인 변수만!!!! narrowing할때 씁니다.
+    //2.무슨 타입이 들어올지 100%확실할때 쓰세요.(굳이 쓸필요없음. 버그 추적못함...!)
+};
+/**
+문제1  숫자여러개를 array 자료에 저장해놨는데
+가끔 '4', '5' 이런 식의 문자타입의 숫자가 발견되고 있습니다.
+이걸 클리닝해주는 함수가 필요합니다.
+클리닝함수( ['1', 2, '3'] ) 이렇게 숫자와 문자가 섞인 array를 입력하면
+[1,2,3] 이렇게 숫자로 깔끔하게 변환되어 나오는 클리닝함수를 만들어오고 타입지정까지 확실히 해보십시오
+*/
+var array_cleaning = function (array) {
+    var new_array = [];
+    array.forEach(function (number) {
+        if (typeof number === 'string') {
+            new_array.push(Number(number));
+        }
+        else {
+            new_array.push(number);
+        }
+    });
+    console.log("claening after : ".concat(new_array, ", ").concat(typeof new_array[2]));
+};
+array_cleaning([1, 3, '33', 44, 5, 7, 8, '98']);
+//왜 for문은 안대? 돼야지?
+// const array_cleaning02 = (array:(number|string)[])=>{
+//     let new_array:number[] =[];
+//     for(let i=0; i<=array.length; i++){
+//         if(typeof array[i]==='string'){
+//             new_array.push(Number(array[i]))
+//         }else{new_array.push(array[i])}
+//     }
+//     console.log(`claening after : ${new_array}, ${typeof new_array[2]}`);
+// }
+// array_cleaning02([1,3,'33',44,5,7,8,'98']);
+/**
+그 선생님이 가르치고 있는 과목중 맨 뒤의 1개를 return 해주는 함수를 만들어봅시다.
+ */
+var teacher01 = { subject: 'math' };
+var teacher02 = { subject: ['science', 'english'] };
+var teacher03 = { subject: ['science', 'art', 'korean'] };
+var subject_return = function (teacher) {
+    if (typeof teacher.subject === 'string') {
+        console.log("\uC120\uC0DD\uB2D8\uC774 \uAC00\uB974\uCE58\uB294 \uACFC\uBAA9\uC740 ".concat(teacher.subject));
+    }
+    else if (Array.isArray(teacher.subject)) {
+        console.log("\uC120\uC0DD\uB2D8\uC774 \uAC00\uB974\uCE58\uB294\uACFC\uBAA9\uC740 ".concat(teacher.subject.length, "\uAC1C \uC774\uACE0, \uADF8\uC911 \uB9C8\uC9C0\uB9C9 \uACFC\uBAA9\uC740 ").concat(teacher.subject[teacher.subject.length - 1], "\uC785\uB2C8\uB2E4."));
+    }
+};
+subject_return(teacher01);
+subject_return(teacher02);
+subject_return(teacher03);
 //타입이 길다면? -> 타입을 변수로 지정해서 사용
 var time = "11시";
 function my_function(num) {
