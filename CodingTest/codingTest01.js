@@ -142,10 +142,22 @@ const solution10 = (my_string) =>{
     const regex = /[^0-9]/g;
     const result =my_string.replace(regex,'');
     const array= [...result].sort((a,b)=>{return a - b}); 
-    Answer10.innerHTML= my_number;
+    Answer10.innerHTML= array;
 }
 
 solution10('hello920,simbaaa2056');
 
 //문제11
 
+
+//문제13
+
+const Answer13 = document.querySelector('.answer13');
+const solution13 = (my_string)=>{
+    const string_array = my_string.split('');
+    const reverse_array = string_array.reverse();
+    const join_array = reverse_array.join('');
+    Answer13.innerHTML+=`글자를 뒤집으면 ${join_array}<br>`;
+}
+solution13('simbaaaa');
+solution13('nemuinanoni..');
