@@ -68,6 +68,58 @@ declare const subject_return: (teacher: {
 }) => void;
 type TypeSN = string | number;
 declare let time: TypeSN;
+type Animal = string | number | undefined;
+declare let animal: Animal;
+type Animal2 = {
+    name: string;
+    age: number;
+};
+declare let animal2: Animal2;
+type Friend = {
+    readonly name: string;
+    age?: number;
+};
+declare const friend: Friend;
+type Name = string;
+type Age = number;
+type Person = Name | Age;
+type PositionX = {
+    x: number;
+};
+type PositionY = {
+    y: number;
+};
+type NewType = PositionX & PositionY;
+type Person1 = {
+    name: string;
+    age: number;
+};
+type Pet = {
+    age: number;
+    color: string;
+};
+type NewType2 = Person1 & Pet;
+declare let myPet: NewType2;
+type Shirts = {
+    color?: string;
+    size: number;
+    readonly position: number[];
+};
+declare const test: Shirts;
+type UserInfo = {
+    name: string;
+    phone: number;
+    emall: string;
+    adult: boolean;
+};
+declare let user_info: UserInfo;
+declare let MyPet: 'simba' | 'momo';
+declare const function5: (a: 'hello') => 1 | 0;
+declare const function10: (a: 'rock' | 'Paper' | 'Scissors') => ('rock' | 'Paper' | 'Scissors')[];
+declare let data: {
+    readonly name: "simba";
+};
+declare const my_function5: (a: 'simba') => "simba";
 declare function my_function(num: number): number;
 type Member = [number, boolean, string];
 declare let john: Member;

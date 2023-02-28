@@ -150,7 +150,9 @@ array_cleaning([1, 3, '33', 44, 5, 7, 8, '98']);
 //     for(let i=0; i<=array.length; i++){
 //         if(typeof array[i]==='string'){
 //             new_array.push(Number(array[i]))
-//         }else{new_array.push(array[i])}
+//         }else if (typeof array[i] ==='number')
+//         {new_array.push(array[i])
+//         }
 //     }
 //     console.log(`claening after : ${new_array}, ${typeof new_array[2]}`);
 // }
@@ -166,7 +168,7 @@ var subject_return = function (teacher) {
         console.log("\uC120\uC0DD\uB2D8\uC774 \uAC00\uB974\uCE58\uB294 \uACFC\uBAA9\uC740 ".concat(teacher.subject));
     }
     else if (Array.isArray(teacher.subject)) {
-        console.log("\uC120\uC0DD\uB2D8\uC774 \uAC00\uB974\uCE58\uB294\uACFC\uBAA9\uC740 ".concat(teacher.subject.length, "\uAC1C \uC774\uACE0, \uADF8\uC911 \uB9C8\uC9C0\uB9C9 \uACFC\uBAA9\uC740 ").concat(teacher.subject[teacher.subject.length - 1], "\uC785\uB2C8\uB2E4."));
+        console.log("\uC120\uC0DD\uB2D8\uC774 \uAC00\uB974\uCE58\uB294\uACFC\uBAA9\uC740 ".concat(teacher.subject.length, "\uAC1C \uC774\uACE0,\n             \uADF8\uC911 \uB9C8\uC9C0\uB9C9 \uACFC\uBAA9\uC740 ").concat(teacher.subject[teacher.subject.length - 1], "\uC785\uB2C8\uB2E4."));
     }
 };
 subject_return(teacher01);
@@ -174,6 +176,35 @@ subject_return(teacher02);
 subject_return(teacher03);
 //타입이 길다면? -> 타입을 변수로 지정해서 사용
 var time = "11시";
+var animal = 'dog';
+var animal2 = { name: 'SIMBAA', age: 5 };
+var friend = {
+    name: 'rani'
+};
+var myPet = { name: '은경', age: 33, color: 'warmTone' };
+var test = { size: 22, position: [22, 55, 66] };
+var user_info = { name: 'lee', phone: 1255553, emall: 'simba@momo.com', adult: true };
+//LiteralTypes -사전에 지정한 가뵤만 들어올수 있게 하는것.
+var MyPet;
+//MyPet='nana' 에러나는대 너무 슬프자나...
+var function5 = function (a) {
+    return 1;
+};
+//파라미터에 무조건 'hello'만 가능, 리턴값으로 1혹은 0만 가능
+var function10 = function (a) {
+    return ['Paper', 'Scissors'];
+};
+//LiteralTypes 의 문제점
+var data = { name: 'simba' };
+//as const
+// !!!!object value값을 그대로 타입으로 지정해줌!!!
+//name type = 'simba'가 되는거임
+//object속성을 모두 readonly로 바꿔줌! -> 속성값 변경 불가
+var my_function5 = function (a) {
+    return a;
+};
+//type이 'simba'인것만 쓸수있음
+my_function5(data.name);
 function my_function(num) {
     return num * 5;
     //파라미터, 리턴값 둘다 number타입만 가능하다.

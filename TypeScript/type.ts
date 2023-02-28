@@ -174,7 +174,9 @@ array_cleaning([1,3,'33',44,5,7,8,'98']);
 //     for(let i=0; i<=array.length; i++){
 //         if(typeof array[i]==='string'){
 //             new_array.push(Number(array[i]))
-//         }else{new_array.push(array[i])}
+//         }else if (typeof array[i] ==='number')
+//         {new_array.push(array[i])
+//         }
 //     }
 //     console.log(`claening after : ${new_array}, ${typeof new_array[2]}`);
 // }
@@ -191,16 +193,106 @@ const subject_return =(teacher:{subject:string|string[]})=>{
     if(typeof teacher.subject ==='string'){
         console.log(`선생님이 가르치는 과목은 ${teacher.subject}`)}
         else if(Array.isArray(teacher.subject)){
-            console.log(`선생님이 가르치는과목은 ${teacher.subject.length}개 이고, 그중 마지막 과목은 ${teacher.subject[teacher.subject.length-1]}입니다.`)
+            console.log(`선생님이 가르치는과목은 ${teacher.subject.length}개 이고,
+             그중 마지막 과목은 ${teacher.subject[teacher.subject.length-1]}입니다.`)
         }
     }
     subject_return(teacher01);
     subject_return(teacher02);
     subject_return(teacher03);
+
+//-------
+
 type TypeSN = string|number;
 //타입이 길다면? -> 타입을 변수로 지정해서 사용
 let time:TypeSN ="11시";
 
+type Animal=string|number|undefined ;
+let animal:Animal ='dog';
+
+type Animal2 = {name:string, age:number};
+
+let animal2:Animal2 = {name:'SIMBAA', age:5}
+//가독성이 좋음, 타입 작명할땐 첫글자는 대문자로 지어야함
+
+//object readonly -> 수정하면 에러남! 하지만 js에선 실행댐;
+
+type Friend = {readonly name:string, age?: number}
+const friend:Friend ={
+    name:'rani'
+}
+
+type Name = string;
+type Age = number;
+type Person = Name|Age;
+//Person은 string, number타입이된다.
+
+type PositionX = {x:number};
+type PositionY = {y:number};
+//type 변수 extend하기
+//&연산자로 object Type extend
+
+type NewType = PositionX & PositionY;
+
+//type은 재정의가 불가능하다.
+
+//문제1  object 타입을 정의한 type alias 두개를 & 기호로 합칠 때 중복된 속성이 있으면 어떻게 될까요?
+
+type Person1 ={name:string , age:number};
+type Pet ={age:number, color:string};
+
+type NewType2 = Person1&Pet;
+
+let myPet :NewType2 ={name:'은경',age:33,color:'warmTone'};
+//아예 속성명:타입 둘다 같으면 에러안남, 중첩되버림 하나라도 다르면 에러남;
+
+
+//문제2
+type Shirts ={
+    color?:string,
+    size:number,
+    readonly position:number[]
+};
+
+const test:Shirts={size:22, position:[22,55,66]};
+
+//문제3 type alias만들기
+// { name : 'kim', phone : 123, email : 'abc@naver.com' }
+
+type UserInfo = {name:string, phone:number, emall:string, adult:boolean}
+
+let user_info:UserInfo = { name : 'lee', phone : 1255553, emall:'simba@momo.com', adult:true}
+
+
+//LiteralTypes -사전에 지정한 가뵤만 들어올수 있게 하는것.
+
+let MyPet :'simba'|'momo';
+
+//MyPet='nana' 에러나는대 너무 슬프자나...
+
+const function5 = (a:'hello'): 1|0 =>{
+  return 1;  
+}
+//파라미터에 무조건 'hello'만 가능, 리턴값으로 1혹은 0만 가능
+
+const function10 = (a: 'rock' | 'Paper' | 'Scissors') :('rock'|'Paper'|'Scissors')[]=>{
+return ['Paper','Scissors'];
+}
+
+//LiteralTypes 의 문제점
+
+let data = {name:'simba'} as const
+//as const
+// !!!!object value값을 그대로 타입으로 지정해줌!!!
+//name type = 'simba'가 되는거임
+//object속성을 모두 readonly로 바꿔줌! -> 속성값 변경 불가
+
+
+const my_function5 =(a:'simba')=>{
+    return a;
+}
+//type이 'simba'인것만 쓸수있음
+my_function5(data.name)
 
 function my_function (num : number) :number{
     return num *5;
