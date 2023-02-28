@@ -161,3 +161,44 @@ const solution13 = (my_string)=>{
 }
 solution13('simbaaaa');
 solution13('nemuinanoni..');
+
+
+//문제16
+const Answer16 =document.querySelector('.answer16');
+// const solution16 = (my_string) => {
+// const noOverlap = (my_string) => {[...new Set(my_string)]};
+//     Answer16.innerHTML = `원래배열은 [${my_string}], 
+//     중복값을 제거한 배열은 ${noOverlap}<br>`
+// }
+//solution16([11,22,44,33,22])
+// const solution16_1 = (my_string) =>{
+//     let noOverlap = my_string.filter((value,index)=>{indexOf( value ) === index});
+//     Answer16.innerHTML += `원래배열은 ${my_string}, 중복값을 제거한 배열은 ${noOverlap}`
+// }
+// solution16_1([11,22,55,66,33,11,33,44,33,22])]
+
+//머리 터질거같음...
+
+//문제19
+
+const Answer19 =document.querySelector('.answer19');
+
+const solution19 = (money)=>{
+    let cup = Math.floor(money / 5500);
+    let changes = money %(cup*5500);
+
+    Answer19.innerHTML = `머쓱이가 가진돈은 단돈 ${money}이고 
+    이걸로 사먹을수 있는 아아메는 ${cup}잔, 남은돈은 ${changes}`
+}
+solution19(15000);
+
+//문제22
+
+const Answer22 =document.querySelector('.answer22');
+
+const solution22 = (numbers) => {
+    const sortNumber = numbers.sort((a,b)=>{return b-a});
+    const maximum = sortNumber[0]*sortNumber[1];
+    Answer22.innerHTML = `가장 큰수 두개를 곱한 값은? ${maximum}`;
+}
+solution22([2,5,7,8,9,12]);
