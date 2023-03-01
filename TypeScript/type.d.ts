@@ -152,3 +152,36 @@ declare const ImgButton: Element | null;
 declare const Image1: Element | null;
 declare const imgChange: () => void;
 declare const NaverLink: NodeListOf<Element>;
+declare class PersonClass {
+    data: number;
+    name: string;
+    age: number;
+    constructor(name: string, age: number);
+    nextAge: () => void;
+}
+declare let person22: PersonClass;
+declare let person32: PersonClass;
+/**
+ 1. model, price를 가진 오브젝트
+ 2.tax 함수-> price의 10%를 출력
+ 3. model, price,tax return Type지정
+ */
+declare class Car {
+    model: string;
+    price: number;
+    constructor(model: string, price: number);
+    tax: () => number;
+}
+declare let Audi: Car;
+declare let LandRove: Car;
+/**
+ 1. obj 만들때 파라미터로 숫자 혹은 문자를 입력하면
+ 각각 타입에 맞는 배열안에 담기
+ 2.타입지정
+ */
+declare class NumOrStr {
+    num: number[];
+    str: string[];
+    constructor(...param: (string | number)[]);
+}
+declare let object: NumOrStr;

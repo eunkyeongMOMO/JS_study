@@ -438,3 +438,84 @@ NaverLink.forEach((a)=>{if(a instanceof HTMLAnchorElement){
     a.href='https://kakao.com'
 }})
 
+
+//------class문법 type정하기
+
+class PersonClass{
+    data:number = 0;
+    name:string;
+    age:number;
+    //타입스크립트 costructor쓸 변수는 반드시 위에서 필드값을 적어줘야함.+타입지정도 같이해줌
+    constructor(name:string, age:number){
+        this.name=name;
+        this.age=age;
+    }
+    nextAge = () =>{
+        console.log(this.age+1);
+    }
+}
+
+let person22 = new PersonClass('eunkyeong',33);
+let person32 = new PersonClass('jun',30);
+
+person22.nextAge();
+person32.nextAge();
+console.log(person22.data);
+
+
+//문제1 Car class 생성
+/**
+ 1. model, price를 가진 오브젝트
+ 2.tax 함수-> price의 10%를 출력
+ 3. model, price,tax return Type지정
+ */
+
+ class Car {
+    model:string;
+    price:number;
+    constructor(model:string, price:number){
+        this.model=model;
+        this.price=price;
+    }
+    tax=():number=>{
+        let CarTax= this.price *0.1;
+        console.log(`이 차는 ${this.model}이며, 가격은 ${this.price}, 부가세는 ${CarTax} 총합${this.price+CarTax}입니다.`)
+        return CarTax;
+    }
+ }
+ let Audi = new Car('audi R8',8700);
+ let LandRove = new Car('Range Rover',7500);
+
+ Audi.tax();
+ LandRove.tax();
+
+ //문제2. class인데 파라미터가 잔뜩들어가있는 classWord
+ /**
+  1. obj 만들때 파라미터로 숫자 혹은 문자를 입력하면 
+  각각 타입에 맞는 배열안에 담기
+  2.타입지정
+  */
+
+  class NumOrStr {
+    num;
+    str;
+
+    constructor(...param:(string|number)[]){
+        //레스트파라미터는 배열이라 꼭 []타입으로 타입지정해줘야함. 안그러면 에러남
+    
+        let numArray:number[]=[];
+        let strArray:string[]=[];
+        
+        param.forEach((a)=>{if(typeof a ==='number'){
+            numArray.push(a);
+        }else if(typeof a ==='string'){
+            strArray.push(a);
+        }})
+        this.num=numArray;
+        this.str=strArray;
+    }
+  }
+
+  let object = new NumOrStr('simba',3,4,6,'nana','momo','rani');
+  console.log(object.num);
+  console.log(object.str);
