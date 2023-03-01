@@ -382,3 +382,16 @@ var NumOrStr = /** @class */ (function () {
 var object = new NumOrStr('simba', 3, 4, 6, 'nana', 'momo', 'rani');
 console.log(object.num);
 console.log(object.str);
+var square = { color: 'blue', width: 200 };
+//interface도 &기호 뒤에 붙여서 사용 할 수 있음
+var student = { name: 'lee' };
+var teacher = { name: 'nam', age: 50 };
+var product = { brand: 'samsung', serialNumber: 1360, model: ['TV', 'phone'] };
+var cart = [{ product: '청소기', price: 60000 }, { product: '휴지', price: 9000 }];
+var card = { product: '청소기', price: 60000, card: false };
+var calculator = {
+    plus: function (a, b) { return a + b; },
+    minus: function (a, b) { return a - b; }
+};
+console.log(calculator.plus(5, 6));
+console.log(calculator.minus(10, 3));

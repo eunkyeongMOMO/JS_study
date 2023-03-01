@@ -519,3 +519,55 @@ console.log(person22.data);
   let object = new NumOrStr('simba',3,4,6,'nana','momo','rani');
   console.log(object.num);
   console.log(object.str);
+
+
+  //--------interface
+
+interface Squere {color:string, width:number}
+
+let square:Squere ={color:'blue', width: 200}
+
+interface Student {name:string}
+interface Teacher extends Student {age:number}
+
+//extends가능 -> 복붙하는것
+
+// type & ->두 타입 다 만족하는것 ,중복 발생해도 미리 에러안나서 주의해야함. 사용할때는 에러남.
+
+type Animal3 ={name:string}
+type Cat = {age:number} & Student
+//interface도 &기호 뒤에 붙여서 사용 할 수 있음
+
+let student:Student = {name:'lee'}
+let teacher:Teacher = {name:'nam', age:50}
+
+//!!!!interface 중복선언가능, type 중복선언 불가능!!!!
+//외부 라이브러리 같은 경우 interface가 더많음. 더 유연하게 사용가능
+//보통 object는 interface로 많이씀, 중복은 에러로잡아줌. 
+
+
+//문제1 intterface를 이용해서 간단한 타입만들기
+
+interface Product { brand: string, serialNumber:number, model:string[]}
+let product:Product = {brand:'samsung', serialNumber:1360, model:['TV','phone']}
+
+//문제2 array 안에 object여러개
+
+interface Cart {product:string, price:number}
+let cart:Cart[] = [{product:'청소기', price:60000},{product:'휴지',price:9000}]
+
+interface Card extends Cart {card:boolean}
+
+let card:Card ={product:'청소기', price:60000, card:false}
+
+interface Calculator{
+    plus:(a:number, b:number) => number,
+    minus:(a:number, b:number) =>number
+}
+let calculator:Calculator = {
+    plus (a, b){return a+b},
+    minus (a , b){return a-b}
+}
+
+console.log(calculator.plus(5,6));
+console.log(calculator.minus(10,3));

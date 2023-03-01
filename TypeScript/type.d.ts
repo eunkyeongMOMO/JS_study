@@ -185,3 +185,42 @@ declare class NumOrStr {
     constructor(...param: (string | number)[]);
 }
 declare let object: NumOrStr;
+interface Squere {
+    color: string;
+    width: number;
+}
+declare let square: Squere;
+interface Student {
+    name: string;
+}
+interface Teacher extends Student {
+    age: number;
+}
+type Animal3 = {
+    name: string;
+};
+type Cat = {
+    age: number;
+} & Student;
+declare let student: Student;
+declare let teacher: Teacher;
+interface Product {
+    brand: string;
+    serialNumber: number;
+    model: string[];
+}
+declare let product: Product;
+interface Cart {
+    product: string;
+    price: number;
+}
+declare let cart: Cart[];
+interface Card extends Cart {
+    card: boolean;
+}
+declare let card: Card;
+interface Calculator {
+    plus: (a: number, b: number) => number;
+    minus: (a: number, b: number) => number;
+}
+declare let calculator: Calculator;
