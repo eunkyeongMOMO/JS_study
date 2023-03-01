@@ -255,3 +255,57 @@ var User = /** @class */ (function () {
     return User;
 }());
 //class의 경우 먼저 변수를만들어서 타입을 지절한 다음 사용해야함
+//typescript로 html조작할때 주의점.
+//셀렉터로 찾은 html요소는 element|null 인 union type입니다.
+var Title = document.getElementById('title');
+//type narrowing해줘야함
+if (Title !== null) {
+    Title.innerHTML = 'Hi MOMO!';
+}
+//instanceof 연산자사용해서 narrowing하는 방법
+if (Title instanceof Element) {
+    Title.innerHTML += '<br>집 가고 싶어';
+}
+//가장많이 사용하는 방법
+var Title2 = document.getElementById('title2');
+//비상시, 100%확신할때쓴다. 잘안쓰는게 좋음
+Title2.innerHTML = '내일 또 출근인데!';
+if (Title2 === null || Title2 === void 0 ? void 0 : Title2.innerHTML) {
+    Title2.innerHTML += '<br>언제 집에가지..?';
+}
+//?.붙이면 Title2안에 innerHtml속성이 있는지? 없으면 undefined반환
+//a tag href속성 바꾸기
+var Link = document.querySelector('.link');
+if (Link instanceof HTMLAnchorElement) {
+    Link.href = 'https://kakao.com';
+}
+//a태그의 경우 엘레먼트타입을 정확하게 기입해야함
+var Button = document.querySelector('#button');
+var ButtonBox = document.querySelector('.buttonBox');
+var ShowBox = function () {
+    if (ButtonBox instanceof Element) {
+        ButtonBox.classList.toggle('active');
+    }
+};
+Button === null || Button === void 0 ? void 0 : Button.addEventListener('click', ShowBox);
+//문제1 ->버튼 누르면 이미지 바꾸기
+var ImgButton = document.querySelector('.change');
+var Image1 = document.querySelector('.image');
+var imgChange = function () {
+    if (Image1 instanceof HTMLImageElement) {
+        if (Image1.src === './change.webp') {
+            Image1.src = './test.webp';
+        }
+        else {
+            Image1.src = './change.webp';
+        }
+    }
+};
+ImgButton === null || ImgButton === void 0 ? void 0 : ImgButton.addEventListener('click', imgChange);
+//문제2
+var NaverLink = document.querySelectorAll('.naver');
+NaverLink.forEach(function (a) {
+    if (a instanceof HTMLAnchorElement) {
+        a.href = 'https://kakao.com';
+    }
+});

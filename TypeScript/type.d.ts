@@ -142,3 +142,13 @@ declare class User {
     name: String;
     constructor(name: string);
 }
+declare const Title: HTMLElement | null;
+declare const Title2: Element;
+declare const Link: Element | null;
+declare const Button: Element | null;
+declare const ButtonBox: Element | null;
+declare const ShowBox: () => void;
+declare const ImgButton: Element | null;
+declare const Image1: Element | null;
+declare const imgChange: () => void;
+declare const NaverLink: NodeListOf<Element>;

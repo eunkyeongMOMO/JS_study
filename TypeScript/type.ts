@@ -372,3 +372,69 @@ class User{
 //class의 경우 먼저 변수를만들어서 타입을 지절한 다음 사용해야함
 
 
+//typescript로 html조작할때 주의점.
+
+//셀렉터로 찾은 html요소는 element|null 인 union type입니다.
+const Title = document.getElementById('title');
+//type narrowing해줘야함
+if(Title!==null){Title.innerHTML = 'Hi MOMO!'}
+
+//instanceof 연산자사용해서 narrowing하는 방법
+
+if(Title instanceof Element){
+    Title.innerHTML+='<br>집 가고 싶어';
+}
+//가장많이 사용하는 방법
+
+
+const Title2 = document.getElementById('title2') as Element;
+//비상시, 100%확신할때쓴다. 잘안쓰는게 좋음
+Title2.innerHTML = '내일 또 출근인데!';
+
+if(Title2?.innerHTML){
+    Title2.innerHTML+='<br>언제 집에가지..?';
+}
+//?.붙이면 Title2안에 innerHtml속성이 있는지? 없으면 undefined반환
+
+//a tag href속성 바꾸기
+
+const Link = document.querySelector('.link');
+
+if(Link instanceof HTMLAnchorElement){
+    Link.href = 'https://kakao.com';
+}
+//a태그의 경우 엘레먼트타입을 정확하게 기입해야함
+
+const Button = document.querySelector('#button');
+const ButtonBox = document.querySelector('.buttonBox');
+
+const ShowBox = ()=>{
+    if(ButtonBox instanceof Element){
+        ButtonBox.classList.toggle('active');
+    }
+}
+
+Button?.addEventListener('click', ShowBox)
+
+//문제1 ->버튼 누르면 이미지 바꾸기
+
+const ImgButton = document.querySelector('.change');
+const Image1 = document.querySelector('.image');
+
+const imgChange = () => {
+    if(Image1 instanceof HTMLImageElement){
+        if(Image1.src==='./change.webp'){
+            Image1.src='./test.webp';
+        }else{Image1.src='./change.webp'}
+    }
+}
+ImgButton?.addEventListener('click', imgChange);
+
+//문제2
+
+const NaverLink = document.querySelectorAll('.naver')
+
+NaverLink.forEach((a)=>{if(a instanceof HTMLAnchorElement){
+    a.href='https://kakao.com'
+}})
+
