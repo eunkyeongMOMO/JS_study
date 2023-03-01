@@ -205,6 +205,43 @@ var my_function5 = function (a) {
 };
 //type이 'simba'인것만 쓸수있음
 my_function5(data.name);
+var my_function10 = function (a) {
+    return a + 5;
+};
+//함수표현식에만 함수type타입지정
+var UserInfo = {
+    name: 'simba',
+    age: 2,
+    //changeName: (name:string)=> void,
+    nextAge: function (age) { return age + 1; },
+};
+var cutZero = function (string) {
+    var stringArray = string.split('');
+    if (stringArray[0] === '0') {
+        stringArray.shift();
+    }
+    var filterString = stringArray.join('');
+    // return `입력한 값 ${string} 첫 글자0일 경우 제거한 값${filterString}`;
+    return filterString;
+};
+console.log(cutZero('09897'));
+console.log(cutZero('0777797'));
+var removeDash = function (phoneNumber) {
+    var stringArray = phoneNumber.split('');
+    console.log(stringArray);
+    var filterArray = stringArray.filter(function (element) { return element !== '-'; });
+    //filter 함수쓸때 꼭 return 써줘야함.
+    var joinArray = filterArray.join('');
+    var numberChange = Number(joinArray);
+    return numberChange;
+};
+console.log(removeDash('---2555-7890'));
+var NewFunction = function (phone, func1, func2) {
+    var result = func1(phone);
+    var result2 = func2(result);
+    console.log(result2);
+};
+NewFunction('010-9955-0543', cutZero, removeDash);
 function my_function(num) {
     return num * 5;
     //파라미터, 리턴값 둘다 number타입만 가능하다.

@@ -120,6 +120,18 @@ declare let data: {
     readonly name: "simba";
 };
 declare const my_function5: (a: 'simba') => "simba";
+type FunctionType = (a: number) => number;
+declare const my_function10: FunctionType;
+declare let UserInfo: {
+    name: string;
+    age: number;
+    nextAge: (age: number) => number;
+};
+type FunctionType2 = (x: string) => string;
+declare const cutZero: FunctionType2;
+type RemoveType = (a: string) => number;
+declare const removeDash: RemoveType;
+declare const NewFunction: (phone: string, func1: FunctionType2, func2: RemoveType) => void;
 declare function my_function(num: number): number;
 type Member = [number, boolean, string];
 declare let john: Member;

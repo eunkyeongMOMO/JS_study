@@ -287,12 +287,63 @@ let data = {name:'simba'} as const
 //name type = 'simba'가 되는거임
 //object속성을 모두 readonly로 바꿔줌! -> 속성값 변경 불가
 
-
 const my_function5 =(a:'simba')=>{
     return a;
 }
 //type이 'simba'인것만 쓸수있음
 my_function5(data.name)
+//-------------------
+
+//function Type 저장하는 방법
+
+type FunctionType = (a:number) => number;
+
+const my_function10:FunctionType = (a)=>{
+    return a+5;
+}
+//함수표현식에만 함수type타입지정
+
+let UserInfo ={
+    name :'simba',
+    age : 2,
+    //changeName: (name:string)=> void,
+    nextAge:(age:number):number =>{ return age+1;},
+}
+type FunctionType2 = (x:string)=>string;
+
+const cutZero:FunctionType2=(string)=>{
+    const stringArray= string.split('');
+    if(stringArray[0]==='0'){
+        stringArray.shift();        
+    }
+    const filterString = stringArray.join('');
+   // return `입력한 값 ${string} 첫 글자0일 경우 제거한 값${filterString}`;
+    return filterString;
+}
+
+console.log(cutZero('09897'));
+console.log(cutZero('0777797'));
+
+type RemoveType = (a:string)=> number;
+
+const removeDash:RemoveType = (phoneNumber)=>{
+    let stringArray= phoneNumber.split('');
+    console.log(stringArray);
+    let filterArray = stringArray.filter((element) => { return element !== '-'});
+//filter 함수쓸때 꼭 return 써줘야함.
+    let joinArray = filterArray.join('');
+    let numberChange = Number(joinArray);
+    return numberChange;
+}
+console.log(removeDash('---2555-7890'));
+
+const NewFunction = (phone:string, func1:FunctionType2, func2:RemoveType)=>{
+    let result = func1(phone);
+    let result2 = func2(result);
+    console.log(result2) ;
+}
+NewFunction('010-9955-0543', cutZero, removeDash)
+
 
 function my_function (num : number) :number{
     return num *5;
