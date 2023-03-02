@@ -192,6 +192,23 @@ const solution19 = (money)=>{
 }
 solution19(15000);
 
+//문제 21
+
+const Answer21 = document.querySelector('.answer21')
+const solution21 =(i,j,k)=>{
+    let array=[];
+    for(let a=i; a<=j ; a++){
+        array.push(a);
+    }
+    let stringK= k.toString();
+    let newArray = array.toString();
+    let stringArray = newArray.split('');
+    let filter = stringArray.filter(el => el == stringK).length
+    Answer21.innerHTML=`입력된 ${i}, ${j} 사이에 ${k}는 총 ${filter}개입니다.`
+}
+
+solution21(12,20,1);
+
 //문제22
 
 const Answer22 =document.querySelector('.answer22');
@@ -202,3 +219,24 @@ const solution22 = (numbers) => {
     Answer22.innerHTML = `가장 큰수 두개를 곱한 값은? ${maximum}`;
 }
 solution22([2,5,7,8,9,12]);
+
+
+//문제 24
+
+
+const Answer24 =document.querySelector('.answer24');
+
+const solution24 = (number) =>{
+    let oddArray = [];
+    for(let i =0; i<=number; i++){
+        if(i % 2 === 1){
+            oddArray.push(i);
+        }
+    }
+    let sortArray = oddArray.sort((a,b)=>{return a-b});
+
+    Answer24.innerHTML += `입력된 ${number} 보다 작은 홀수의 오름차순 정렬 [${sortArray}]<br>`
+}
+
+solution24(23);
+solution24(16);
