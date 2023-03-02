@@ -571,3 +571,69 @@ let calculator:Calculator = {
 
 console.log(calculator.plus(5,6));
 console.log(calculator.minus(10,3));
+
+//rest, destucturing
+
+const restFunction = (...a:number[])=>{
+    console.log(a)
+}
+restFunction(1,2,5,5,8,9,10);
+
+//destructuring
+
+interface Object2 {student:boolean, age:number}
+
+let [vrbl1, vrbl2] =['hello', 'simba'];
+let object2= {student:true, age:23}
+let obj = ({student, age}:Object2 )=>{ //파라미터만들기 === 변수만들기
+    console.log(student,age);
+}
+obj(object2);
+
+//함수 파라미터 작명할때 destructuring쓰묜 object 넣기쉬워짐!
+
+/**숫자 여러개를 입력하면 최댓값을 return 해주는 함수를 만들어봅시다. 
+최댓값(6,3,7,2) 이렇게 쓰면 7이 return 되어야합니다. 
+(조건1) 넣을 수 있는 숫자 갯수는 제한없음, 0 이상의 정수만 가능합니다.
+(조건2) Math.max() 사용금지 */
+
+const maxValue = (...num:number[]) => {
+    let max = num[0];
+    for(let i=0; i<=num.length; i++){
+        if(max<num[i]){
+            max=num[i]
+        }
+    }
+    console.log(`입력한 ${num}중에 제일 큰 값은 ${max}`);
+}
+maxValue(2,8,6,9,7,5,12);
+
+const maxValue2 = (...num:number[]) => {
+    let sortNum = num.sort((a,b)=>{return a-b});
+    console.log(`입력한 ${num}중에 제일 큰 값은 ${sortNum[0]}`);
+}
+
+
+
+//object 자료를 파라미터로 입력할 수 있는 함수를 만들어봅시다. 
+
+
+interface Object3 {user:string, comment:number[], admin:boolean};
+
+let obj2:Object3 = { user : 'kim', comment : [3,5,4], admin : false };
+
+const TsFunction = ({user, comment, admin}:Object3)=>{
+    console.log(user,comment,admin);
+}
+
+TsFunction(obj2);
+
+//array 자료를 파라미터로 입력할 수 있는 함수를 만들어봅시다. 
+
+type Array32 = [number, string, boolean];
+
+let arr32:Array32 = [40, 'wine', false];
+const TsFunction2 = ([level, favorite, work]:Array32)=>{
+    console.log(level,favorite,work);
+}
+TsFunction2(arr32);

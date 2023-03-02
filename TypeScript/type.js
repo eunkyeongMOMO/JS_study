@@ -395,3 +395,59 @@ var calculator = {
 };
 console.log(calculator.plus(5, 6));
 console.log(calculator.minus(10, 3));
+//rest, destucturing
+var restFunction = function () {
+    var a = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        a[_i] = arguments[_i];
+    }
+    console.log(a);
+};
+restFunction(1, 2, 5, 5, 8, 9, 10);
+var _a = ['hello', 'simba'], vrbl1 = _a[0], vrbl2 = _a[1];
+var object2 = { student: true, age: 23 };
+var obj = function (_a) {
+    var student = _a.student, age = _a.age;
+    console.log(student, age);
+};
+obj(object2);
+//함수 파라미터 작명할때 destructuring쓰묜 object 넣기쉬워짐!
+/**숫자 여러개를 입력하면 최댓값을 return 해주는 함수를 만들어봅시다.
+최댓값(6,3,7,2) 이렇게 쓰면 7이 return 되어야합니다.
+(조건1) 넣을 수 있는 숫자 갯수는 제한없음, 0 이상의 정수만 가능합니다.
+(조건2) Math.max() 사용금지 */
+var maxValue = function () {
+    var num = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        num[_i] = arguments[_i];
+    }
+    var max = num[0];
+    for (var i = 0; i <= num.length; i++) {
+        if (max < num[i]) {
+            max = num[i];
+        }
+    }
+    console.log("\uC785\uB825\uD55C ".concat(num, "\uC911\uC5D0 \uC81C\uC77C \uD070 \uAC12\uC740 ").concat(max));
+};
+maxValue(2, 8, 6, 9, 7, 5, 12);
+var maxValue2 = function () {
+    var num = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        num[_i] = arguments[_i];
+    }
+    var sortNum = num.sort(function (a, b) { return a - b; });
+    console.log("\uC785\uB825\uD55C ".concat(num, "\uC911\uC5D0 \uC81C\uC77C \uD070 \uAC12\uC740 ").concat(sortNum[0]));
+};
+;
+var obj2 = { user: 'kim', comment: [3, 5, 4], admin: false };
+var TsFunction = function (_a) {
+    var user = _a.user, comment = _a.comment, admin = _a.admin;
+    console.log(user, comment, admin);
+};
+TsFunction(obj2);
+var arr32 = [40, 'wine', false];
+var TsFunction2 = function (_a) {
+    var level = _a[0], favorite = _a[1], work = _a[2];
+    console.log(level, favorite, work);
+};
+TsFunction2(arr32);

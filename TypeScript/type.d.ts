@@ -224,3 +224,30 @@ interface Calculator {
     minus: (a: number, b: number) => number;
 }
 declare let calculator: Calculator;
+declare const restFunction: (...a: number[]) => void;
+interface Object2 {
+    student: boolean;
+    age: number;
+}
+declare let vrbl1: string, vrbl2: string;
+declare let object2: {
+    student: boolean;
+    age: number;
+};
+declare let obj: ({ student, age }: Object2) => void;
+/**숫자 여러개를 입력하면 최댓값을 return 해주는 함수를 만들어봅시다.
+최댓값(6,3,7,2) 이렇게 쓰면 7이 return 되어야합니다.
+(조건1) 넣을 수 있는 숫자 갯수는 제한없음, 0 이상의 정수만 가능합니다.
+(조건2) Math.max() 사용금지 */
+declare const maxValue: (...num: number[]) => void;
+declare const maxValue2: (...num: number[]) => void;
+interface Object3 {
+    user: string;
+    comment: number[];
+    admin: boolean;
+}
+declare let obj2: Object3;
+declare const TsFunction: ({ user, comment, admin }: Object3) => void;
+type Array32 = [number, string, boolean];
+declare let arr32: Array32;
+declare const TsFunction2: ([level, favorite, work]: Array32) => void;
