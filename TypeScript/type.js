@@ -115,6 +115,17 @@ var narrowing = function (x) {
     }
     //typeof / 속성명 in 오브젝트 / 인스턴스 instanceof 부모 <- 해당 문법들로 narrowing가능
 };
+var function4 = function (animal) {
+    if ('swim' in animal) {
+        //Fish type인지 아닌지 구분할수 있음, 단 중복되지 않은 유니크한 속성이있어야만 가능함.
+    }
+};
+//object type이 비슷할경우 강제로 literal type 강제로 만들어두면 됨
+var function7 = function (x) {
+    if (x.wheel === '4개') {
+        console.log('x는 Car타입입니다.');
+    }
+};
 // assertion 타입덮어쓰는 문법
 var assertion = function (x) {
     var array = [];

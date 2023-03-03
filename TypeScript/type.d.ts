@@ -42,6 +42,22 @@ declare const NamePrint: (name?: string) => void;
 declare const Number_length: (number: number) => void;
 declare const marriage: (salary: number, aprtm: boolean, charm: string) => void;
 declare const narrowing: (x: number | string) => void;
+type Fish = {
+    swim: string;
+};
+type Bird = {
+    fly: string;
+};
+declare const function4: (animal: Fish | Bird) => void;
+type Car1 = {
+    wheel: '4개';
+    color: string;
+};
+type Bike = {
+    wheel: '2개';
+    color: string;
+};
+declare const function7: (x: Car1 | Bike) => void;
 declare const assertion: (x: number | string) => void;
 /**
 문제1  숫자여러개를 array 자료에 저장해놨는데

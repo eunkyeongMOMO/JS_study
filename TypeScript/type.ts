@@ -138,6 +138,42 @@ const narrowing = (x:number|string)=>{
     //typeof / 속성명 in 오브젝트 / 인스턴스 instanceof 부모 <- 해당 문법들로 narrowing가능
 }
 
+
+
+// const function2 = (a?:string)=>{
+//     if(a && typeof a === 'string' ){}
+// } &&기호를 써서 unfined, null 둘다 체크가 가능하다. 하지만 눈에 익숙하지 않으면 안쓰는게 나음
+//if(a != null) -> null,undefined 두개 동시에 거를수 있음
+
+//typeof로 안될때 -> typeof는 string,number,boolean,object만 가능
+
+type Fish = {swim : string}
+type Bird = {fly : string}
+
+const function4 = (animal : Fish | Bird)=>{
+    if( 'swim' in animal ){
+        //Fish type인지 아닌지 구분할수 있음, 단 중복되지 않은 유니크한 속성이있어야만 가능함.
+    }
+}
+
+type Car1 = {
+    wheel:'4개',
+    color: string
+} 
+
+type Bike = {
+    wheel:'2개',
+    color: string
+} 
+//object type이 비슷할경우 강제로 literal type 강제로 만들어두면 됨
+
+const function7 = (x:Car1|Bike)=>{
+    if(x.wheel==='4개'){
+        console.log('x는 Car타입입니다.');
+    }
+}
+
+
 // assertion 타입덮어쓰는 문법
 
 const assertion = (x:number|string)=>{
