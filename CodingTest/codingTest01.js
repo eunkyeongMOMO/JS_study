@@ -256,11 +256,13 @@ solution25(108);
 
 //문제 26
 
-r26 =document.querySelector('.answer26');
+Answer26 =document.querySelector('.answer26');
 
-// const solution26 = (seven) =>{
-//     let sevenString = seven.toString();
-//     let splitArray = sevenString.split('');
-//     console.log(splitArray);
-// }
-// solution26([7,77,107,7.5]);
+const solution26 = (seven) =>{
+    let sevenString = seven.toString();
+    let splitArray = sevenString.split('');
+    console.log(splitArray);
+    let sevenArray = splitArray.filter((number)=>number==='7');
+    Answer26.innerHTML=`입력한 배열은 ${seven}이고 그중 7의 갯수는 ${sevenArray.length}개임`
+}
+solution26([7,77,107,7.5]);
