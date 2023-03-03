@@ -240,3 +240,27 @@ const solution24 = (number) =>{
 
 solution24(23);
 solution24(16);
+//문제 25
+const Answer25 =document.querySelector('.answer25');
+const solution25 = (number) =>{
+    let evenMax=0;
+    for(let i = 0; i<=number; i++){
+        if(i%2===0){
+            evenMax+=i;
+        }
+    }
+    Answer25.innerHTML+=`입력한 ${number}이하의 짝수의 총합은 ${evenMax}<br>`
+    }
+solution25(25);
+solution25(108);
+
+//문제 26
+
+r26 =document.querySelector('.answer26');
+
+// const solution26 = (seven) =>{
+//     let sevenString = seven.toString();
+//     let splitArray = sevenString.split('');
+//     console.log(splitArray);
+// }
+// solution26([7,77,107,7.5]);
