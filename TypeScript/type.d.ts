@@ -267,3 +267,4 @@ declare const TsFunction: ({ user, comment, admin }: Object3) => void;
 type Array32 = [number, string, boolean];
 declare let arr32: Array32;
 declare const TsFunction2: ([level, favorite, work]: Array32) => void;
+declare const function12: (parameter: string) => void;

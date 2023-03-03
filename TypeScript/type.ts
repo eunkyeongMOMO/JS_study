@@ -673,3 +673,18 @@ const TsFunction2 = ([level, favorite, work]:Array32)=>{
     console.log(level,favorite,work);
 }
 TsFunction2(arr32);
+
+//함수에서 쓰는 never type
+
+//const function12 = ():never=>{
+    //return값이 없어야 사용가능함. endpoint가 없어야함.
+    // while(ture){
+    //     내부코드가 무한대로 돈다아~}}
+//사실상 쓸일이 없음; -> 근데 코드이상하게 짜면 나옴
+
+
+const function12 = (parameter:string)=>{
+    if(typeof parameter =='string'){
+        console.log(parameter)
+    }else{parameter} //이경우 never타입이 됨. 말이안될때 나오니까 디버깅할때 씀
+}
