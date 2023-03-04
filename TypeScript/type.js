@@ -18,6 +18,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 //변수설정
 var Name = 'simba';
 var birthYear = 20019;
@@ -232,6 +241,58 @@ var my_function5 = function (a) {
 };
 //type이 'simba'인것만 쓸수있음
 my_function5(data.name);
+var john = [30405, true, 'simba'];
+//옵션은 무조건 마지막순서로 넣어야한다
+var function05 = function () {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+    var age = rest[0];
+    var name = rest[1];
+    var gender = '';
+    if (rest[2]) {
+        gender = '여성';
+    }
+    else {
+        gender = '남성';
+    }
+    console.log("\uC774\uB984\uC740 ".concat(name, "\uC774\uACE0, \uB098\uC774\uB294").concat(age, "\uC0B4, \uC131\uBCC4\uC740 ").concat(gender, "\uC785\uB2C8\uB2E4"));
+};
+function05(33, '이은경', true);
+function05(33, '이석현', false);
+var food = ['엽떡로제', 16000, true];
+console.log(food);
+//문제2 3번째자료부터 true,false값이 무한대로 들어온다면?
+var food02 = ['rice', 4000, true, false, true, false, true, false, true, false, true, false];
+var tunle01 = function () {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+};
+//문제4 문자,숫자분류기 함수 
+var clsfc = function () {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+    var number01 = [];
+    var string01 = [];
+    rest.forEach(function (el) {
+        if (typeof el === 'number') {
+            number01.push(el);
+        }
+        else {
+            string01.push(el);
+        }
+    });
+    console.log("NumberArray : ".concat(number01, ", StringArray : ").concat(string01));
+};
+clsfc('가야지', 2, 4, 5, '집', 6, 8, '지금', '배고파', 10);
+//array 합칠때
+var arr01 = [1, 3, 4, 5];
+var arr02 = __spreadArray([5, 6], arr01, true);
 var my_function10 = function (a) {
     return a + 5;
 };
@@ -273,7 +334,6 @@ function my_function(num) {
     return num * 5;
     //파라미터, 리턴값 둘다 number타입만 가능하다.
 }
-var john = [30405, true, 'simba'];
 //속성이 문자면 값도 문자타입이어야한다. 
 var User = /** @class */ (function () {
     function User(name) {

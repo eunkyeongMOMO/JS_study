@@ -136,6 +136,18 @@ declare let data: {
     readonly name: "simba";
 };
 declare const my_function5: (a: 'simba') => "simba";
+type Member = [number, boolean, string];
+declare let john: Member;
+type ArrayTuple = [number, string, boolean];
+declare const function05: (rest_0: number, rest_1: string, rest_2: boolean) => void;
+type Food = [string, Number, boolean];
+declare let food: Food;
+declare let food02: [string, number, ...boolean[]];
+type FuncType = [string, number, ...(number | string)[]];
+declare const tunle01: (rest_0: string, rest_1: number, ...rest_2: (string | number)[]) => void;
+declare const clsfc: (...rest: (number | string)[]) => void;
+declare let arr01: number[];
+declare let arr02: [number, number, ...number[]];
 type FunctionType = (a: number) => number;
 declare const my_function10: FunctionType;
 declare let UserInfo: {
@@ -149,8 +161,6 @@ type RemoveType = (a: string) => number;
 declare const removeDash: RemoveType;
 declare const NewFunction: (phone: string, func1: FunctionType2, func2: RemoveType) => void;
 declare function my_function(num: number): number;
-type Member = [number, boolean, string];
-declare let john: Member;
 type Today = {
     [key: string]: string;
 };

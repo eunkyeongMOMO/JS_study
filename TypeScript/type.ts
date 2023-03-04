@@ -330,6 +330,65 @@ const my_function5 =(a:'simba')=>{
 my_function5(data.name)
 //-------------------
 
+//array에 쓸수있는 tuple 타입 -array 순서별로 타입지정
+
+type Member =[number, boolean, string];
+let john:Member =[30405, true, 'simba'];
+
+type ArrayTuple=[number, string, boolean];
+ //옵션은 무조건 마지막순서로 넣어야한다
+const function05 = (...rest:ArrayTuple)=>{
+    let age =rest[0];
+    let name =rest[1];
+    let gender='';
+    if(rest[2]){gender='여성'}else{gender='남성'}
+console.log(`이름은 ${name}이고, 나이는${age}살, 성별은 ${gender}입니다`)
+}
+
+function05(33,'이은경',true);
+function05(33,'이석현',false);
+
+//문제1 최근에 먹은 음식 이름 가격 맛있는지여부를 array자료 -> tuble사용
+
+type Food = [string,Number,boolean]
+let food:Food=['엽떡로제',16000,true]
+console.log(food);
+
+//문제2 3번째자료부터 true,false값이 무한대로 들어온다면?
+
+let food02:[string,number,...boolean[]]=['rice', 4000, true,false,true,false,true,false,true,false,true,false]
+//문제3 함수의 타입지정
+
+type FuncType=[string, number,...(number|string)[]]
+const tunle01 = (...rest:FuncType)=>{}
+
+//문제4 문자,숫자분류기 함수 
+
+const clsfc=(...rest:(number|string)[])=>{
+    let number01:(number|string)[] =[]
+    let string01:(number|string)[] =[]
+    rest.forEach((el)=>{
+        if(typeof el === 'number'){
+            number01.push(el);
+        }else {string01.push(el)}
+    })
+console.log(`NumberArray : ${number01}, StringArray : ${string01}`)
+}
+
+clsfc('가야지',2,4,5,'집',6,8,'지금','배고파',10);
+
+//array 합칠때
+let arr01 =[1,3,4,5];
+let arr02:[number, number, ...number[]] =[5,6,...arr01];
+
+
+
+
+
+
+
+
+//--------------------------
 //function Type 저장하는 방법
 
 type FunctionType = (a:number) => number;
@@ -386,11 +445,6 @@ function my_function (num : number) :number{
     //파라미터, 리턴값 둘다 number타입만 가능하다.
 }
 
-//array에 쓸수있는 tuple 타입 
-
-type Member =[number, boolean, string];
-let john:Member =[30405, true, 'simba'];
-//첫번째값은 무조건 string, 두번째값은 무조건number...
 
 //object에 속성값 한번에 지정하는방법
 
@@ -826,3 +880,4 @@ Box03.draw();
 Box03.draw();
 Box03.draw();
 Box03.draw();
+
