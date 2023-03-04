@@ -268,6 +268,12 @@ type Array32 = [number, string, boolean];
 declare let arr32: Array32;
 declare const TsFunction2: ([level, favorite, work]: Array32) => void;
 declare const function12: (parameter: string) => void;
+/**객체지향 문법에 도움이되는 문법
+public - 기본값, constructor(여기 변수 만들때 pulic변수명으로 만들면 따로 피드, this키워드 안써도됨)
+private - 부모 class만 수정, 이용할수 있는 값
+protected - 확장성이 더 있음 extends한 class에서 사용가능 /부모 class만 수정, 이용할수 있는 값
+static -부모클래스만가지고 있는 속성, extends됨. 다른 키워드랑 같이 사용가능
+*/
 declare class User01 {
     name: string;
     private familyName;
@@ -276,3 +282,46 @@ declare class User01 {
     nameChnge(name: string): void;
 }
 declare let user05: User01;
+declare class Person01 {
+    name: string;
+    age: number;
+    static x: number;
+    protected korean: boolean;
+    constructor(name: string, age: number);
+}
+declare let person02: Person01;
+declare class officeWorkers extends Person01 {
+    NotKorean(): void;
+}
+declare let worker: officeWorkers;
+declare class Dream {
+    static skill: string;
+    intro: string;
+}
+declare let dreamer01: Dream;
+declare let dreamer02: Dream;
+declare class UserCopy {
+    private static number01;
+    static umber02: number;
+    protected number03: number;
+}
+declare class CopyCat extends UserCopy {
+}
+declare let user02: UserCopy;
+declare class Increase {
+    private static number01;
+    static umber02: number;
+    static addOne(x: number): void;
+    static PrintAdd(): void;
+}
+declare const SquareBox: Element | null;
+declare class Square {
+    width: number;
+    height: number;
+    color: string;
+    constructor(width: number, height: number, color: string);
+    draw(): void;
+}
+declare let Box: Square;
+declare let Box02: Square;
+declare let Box03: Square;

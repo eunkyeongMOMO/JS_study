@@ -689,15 +689,20 @@ const function12 = (parameter:string)=>{
     }else{parameter} //이경우 never타입이 됨. 말이안될때 나오니까 디버깅할때 씀
 }
 
-//객체지향 문법에 도움이되는 문법 public, private, 
-//static
+/**객체지향 문법에 도움이되는 문법 
+public - 기본값, constructor(여기 변수 만들때 pulic변수명으로 만들면 따로 피드, this키워드 안써도됨)
+private - 부모 class만 수정, 이용할수 있는 값
+protected - 확장성이 더 있음 extends한 class에서 사용가능 /부모 class만 수정, 이용할수 있는 값
+static -부모클래스만가지고 있는 속성, extends됨. 다른 키워드랑 같이 사용가능
+*/
 
 class User01{
     public name;
     //punlic붙으면 모든 자식들이 이용가능함 -> 기본값이기 때문에 설정안해도 됨
     private familyName:string ='lee';
-    //private가 붙으면 class안에서만 수정, 이용가능함
+    //private가 붙으면 class안에서만 수정, 이용가능함 [조회만 가능함]
     age:number;
+   
     constructor(name:string,age:number){
         this.name=this.familyName+name;
         this.age=age;
@@ -709,7 +714,115 @@ class User01{
 }
 let user05 = new User01('simba',5);
 user05.nameChnge('Gang');
+
 //private 수정하려면 미리 클래스 내부에 설정해둔 함수를 호출
 console.log(user05);
 
+class Person01{
+    static x =10; //부모class만 부여됨,extends시 복사됨 자식에게만 안물려줌!
+    protected korean:boolean = true;
+    constructor(public name:string,public age:number){
+        //pulic키 쓰면 필드, this안쓰고 파라미터로 받은 속성을 바로 넣을수 있음, 
+    }
+   
+}
+let person02 = new Person01('kim', 43);
+console.log(person02);
+//->Person01 {name: 'kim', age: 43}으로 출력됨
 
+
+
+
+//extends
+
+class officeWorkers extends Person01{
+NotKorean(): void {
+    this.korean=false;
+}
+}
+let worker = new officeWorkers('min',23);
+console.log(worker);
+console.log(officeWorkers.x); //->복사된 x의 값인 10출력됨
+
+class Dream{
+    static skill:string ='JavaScript';
+    intro:string = Dream.skill+'전문가가 되는 것 입니다.';
+}
+let dreamer01 = new Dream();
+console.log(dreamer01);
+//Dream {intro: 'JavaScript전문가가 되는것입니다.'}
+
+Dream.skill='TypeScript'
+
+let dreamer02 = new Dream();
+console.log(dreamer02);
+//Dream {intro: 'TypeScript전문가가 되는것입니다.'}
+
+//문제1 다음 속성들의 특징을 설명해보세요
+
+class UserCopy{
+    private static number01 = 10;
+    public static umber02 = 20;
+    protected number03= 30;
+}
+//UserCopy x,y에 static 키워드가 붙었기때문제 자식들은 사용할수없음
+//private static은 클래스 내부에서만 수정가능함.
+//public static 내부외부 상관없이 수정가능함
+//protected은 내부에서만 사용가능. extends한 class내부에서도사용가능
+
+console.log(UserCopy);
+
+class CopyCat extends UserCopy{
+}
+console.log(CopyCat)
+
+let user02 = new UserCopy();
+console.log(user02);
+
+class Increase{
+    private static number01 = 10;
+    public static umber02 = 20;
+    static addOne(x:number){
+     Increase.number01+=x;
+    }
+    static PrintAdd(){
+        console.log(Increase.number01);
+    }
+}
+Increase.addOne(3);
+Increase.addOne(15);
+Increase.PrintAdd();
+
+const SquareBox=document.querySelector('.SquareBox');
+class Square {
+    constructor(public width:number,
+        public height:number,public color:string){}
+    draw(){
+        let x =Math.random()
+        let newBox =`
+        <div style="
+        position:absolute; 
+        width:${this.width}px;
+        height:${this.height}px;
+        background:${this.color}; 
+        top:${x*200}px; 
+        left:${x*200}px
+        "></div>`
+        if(SquareBox instanceof Element){
+             SquareBox.innerHTML+=newBox}
+   }
+}
+let Box = new Square(30,30,'red');
+let Box02 = new Square(30,30,'blue');
+let Box03 = new Square(30,30,'yellow');
+Box.draw();
+Box.draw();
+Box.draw();
+Box02.draw();
+Box02.draw();
+Box02.draw();
+Box02.draw();
+Box03.draw();
+Box03.draw();
+Box03.draw();
+Box03.draw();

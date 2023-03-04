@@ -3,6 +3,21 @@
 //TS파일은 브라우저가 인식하지못하기때문에 JS파일로 변환한다음사용
 //터미널에 tsc -w 입력하면 자동변환됨 
 //----> 자동으로 안되면 tsc 파일명.ts 치면 됨
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 //변수설정
 var Name = 'simba';
 var birthYear = 20019;
@@ -477,8 +492,12 @@ var function12 = function (parameter) {
         parameter;
     } //이경우 never타입이 됨. 말이안될때 나오니까 디버깅할때 씀
 };
-//객체지향 문법에 도움이되는 문법 public, private, 
-//static
+/**객체지향 문법에 도움이되는 문법
+public - 기본값, constructor(여기 변수 만들때 pulic변수명으로 만들면 따로 피드, this키워드 안써도됨)
+private - 부모 class만 수정, 이용할수 있는 값
+protected - 확장성이 더 있음 extends한 class에서 사용가능 /부모 class만 수정, 이용할수 있는 값
+static -부모클래스만가지고 있는 속성, extends됨. 다른 키워드랑 같이 사용가능
+*/
 var User01 = /** @class */ (function () {
     function User01(name, age) {
         //punlic붙으면 모든 자식들이 이용가능함 -> 기본값이기 때문에 설정안해도 됨
@@ -496,3 +515,114 @@ var user05 = new User01('simba', 5);
 user05.nameChnge('Gang');
 //private 수정하려면 미리 클래스 내부에 설정해둔 함수를 호출
 console.log(user05);
+var Person01 = /** @class */ (function () {
+    function Person01(name, age) {
+        this.name = name;
+        this.age = age;
+        this.korean = true;
+        //pulic키 쓰면 필드, this안쓰고 파라미터로 받은 속성을 바로 넣을수 있음, 
+    }
+    Person01.x = 10; //부모class만 부여됨,extends시 복사됨 자식에게만 안물려줌!
+    return Person01;
+}());
+var person02 = new Person01('kim', 43);
+console.log(person02);
+//->Person01 {name: 'kim', age: 43}으로 출력됨
+//extends
+var officeWorkers = /** @class */ (function (_super) {
+    __extends(officeWorkers, _super);
+    function officeWorkers() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    officeWorkers.prototype.NotKorean = function () {
+        this.korean = false;
+    };
+    return officeWorkers;
+}(Person01));
+var worker = new officeWorkers('min', 23);
+console.log(worker);
+console.log(officeWorkers.x); //->복사된 x의 값인 10출력됨
+var Dream = /** @class */ (function () {
+    function Dream() {
+        this.intro = Dream.skill + '전문가가 되는 것 입니다.';
+    }
+    Dream.skill = 'JavaScript';
+    return Dream;
+}());
+var dreamer01 = new Dream();
+console.log(dreamer01);
+//Dream {intro: 'JavaScript전문가가 되는것입니다.'}
+Dream.skill = 'TypeScript';
+var dreamer02 = new Dream();
+console.log(dreamer02);
+//Dream {intro: 'TypeScript전문가가 되는것입니다.'}
+//문제1 다음 속성들의 특징을 설명해보세요
+var UserCopy = /** @class */ (function () {
+    function UserCopy() {
+        this.number03 = 30;
+    }
+    UserCopy.number01 = 10;
+    UserCopy.umber02 = 20;
+    return UserCopy;
+}());
+//UserCopy x,y에 static 키워드가 붙었기때문제 자식들은 사용할수없음
+//private static은 클래스 내부에서만 수정가능함.
+//public static 내부외부 상관없이 수정가능함
+//protected은 내부에서만 사용가능. extends한 class내부에서도사용가능
+console.log(UserCopy);
+var CopyCat = /** @class */ (function (_super) {
+    __extends(CopyCat, _super);
+    function CopyCat() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return CopyCat;
+}(UserCopy));
+console.log(CopyCat);
+var user02 = new UserCopy();
+console.log(user02);
+var Increase = /** @class */ (function () {
+    function Increase() {
+    }
+    Increase.addOne = function (x) {
+        Increase.number01 += x;
+    };
+    Increase.PrintAdd = function () {
+        console.log(Increase.number01);
+    };
+    Increase.number01 = 10;
+    Increase.umber02 = 20;
+    return Increase;
+}());
+Increase.addOne(3);
+Increase.addOne(15);
+Increase.PrintAdd();
+var SquareBox = document.querySelector('.SquareBox');
+var Square = /** @class */ (function () {
+    function Square(width, height, color) {
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+    Square.prototype.draw = function () {
+        var x = Math.random();
+        var newBox = "\n        <div style=\"\n        position:absolute; \n        width:".concat(this.width, "px;\n        height:").concat(this.height, "px;\n        background:").concat(this.color, "; \n        top:").concat(x * 200, "px; \n        left:").concat(x * 200, "px\n        \"></div>");
+        if (SquareBox instanceof Element) {
+            SquareBox.innerHTML += newBox;
+        }
+    };
+    return Square;
+}());
+var Box = new Square(30, 30, 'red');
+var Box02 = new Square(30, 30, 'blue');
+var Box03 = new Square(30, 30, 'yellow');
+Box.draw();
+Box.draw();
+Box.draw();
+Box02.draw();
+Box02.draw();
+Box02.draw();
+Box02.draw();
+Box03.draw();
+Box03.draw();
+Box03.draw();
+Box03.draw();
