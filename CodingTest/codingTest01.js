@@ -149,18 +149,28 @@ solution10('hello920,simbaaa2056');
 
 //문제11
 
+//문제12
+
 
 //문제13
 
 const Answer13 = document.querySelector('.answer13');
-const solution13 = (my_string)=>{
-    const string_array = my_string.split('');
+const solution13 = (before,after)=>{
+    let result=0;
+    const string_array = before.split('');
     const reverse_array = string_array.reverse();
     const join_array = reverse_array.join('');
-    Answer13.innerHTML+=`글자를 뒤집으면 ${join_array}<br>`;
+    if(join_array===after){
+        result=1;}
+    else{result=-1;}
+    Answer13.innerHTML+=`글자를 뒤집으면 ${join_array}, 주어진 문자 ${after}, result는 ${result}<br>`;
 }
-solution13('simbaaaa');
-solution13('nemuinanoni..');
+solution13('simba','abmis');
+solution13('nemuinanoni..','ieniikiti');
+
+//문제14
+
+//문제15
 
 
 //문제16
@@ -192,6 +202,9 @@ const solution19 = (money)=>{
 }
 solution19(15000);
 
+//문제 20
+
+
 //문제 21
 
 const Answer21 = document.querySelector('.answer21')
@@ -220,10 +233,17 @@ const solution22 = (numbers) => {
 }
 solution22([2,5,7,8,9,12]);
 
+const Answer23 =document.querySelector('.answer23');
+
+const solution23 = (numbers, num01, num02) => {
+    let arryFilter=[];
+
+
+}
+solution23([2,5,7,8,9,12]);
+
 
 //문제 24
-
-
 const Answer24 =document.querySelector('.answer24');
 
 const solution24 = (number) =>{
@@ -266,3 +286,50 @@ const solution26 = (seven) =>{
     Answer26.innerHTML=`입력한 배열은 ${seven}이고 그중 7의 갯수는 ${sevenArray.length}개임`
 }
 solution26([7,77,107,7.5]);
+
+//문제27
+
+const Answer27 =document.querySelector('.answer27');
+
+const solution27 = (my_string) =>{
+    let stringArray = my_string.split('');
+    let newString=[];
+    stringArray.forEach((item)=>{
+        if(item!=='a' && item!=='e' && item!=='i' && item!=='o' && item!=='u'){
+            newString.push(item);
+        }
+    })
+    Answer27.innerHTML+=`입력한 ${my_string}중 모음을 제거한 문자는 ${newString}입니다.<br>`
+
+}
+solution27('tomorrow');
+
+//문제 28
+
+
+Answer28 =document.querySelector('.answer28');
+const solution28 = (k,numbers) =>{
+    let stringK=k.toString();
+    console.log(stringK);
+    let stringNumbers= numbers.toString();
+    let stringArray=stringNumbers.split(',')
+    let kIndex= stringArray.indexOf(stringK);
+    Answer28.innerHTML+=`${numbers}중 k는${kIndex}번째에 있음 *없을경우 -1로표시<br>`
+}
+solution28(3, [5,6,9,15,3,44,16]);
+
+
+//문제 29
+
+Answer29 =document.querySelector('.answer29');
+
+const solution29 = (number, numList) =>{
+    let newNumList=[];
+    numList.forEach((el)=>{
+        if(el % number==0){
+            newNumList.push(el);
+        }
+    })
+    Answer29.innerHTML=`입력한 ${numList}중, ${number}의 배수들은 ${newNumList}입니다.`
+}
+solution29(3, [3,5,6,9,15,44,16]);
