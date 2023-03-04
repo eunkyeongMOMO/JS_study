@@ -16,8 +16,8 @@ type Project = {
     days: number;
     started: boolean;
 };
-declare let project: Project;
-declare let age: string | number;
+declare let project01: Project;
+declare let age01: string | number;
 declare let members: (number | string)[];
 declare let newMembers: {
     new: boolean | number;
@@ -26,9 +26,9 @@ declare let newMembers: {
 declare let age2: string | number;
 declare let User1: string;
 declare let user_age: undefined | number;
-declare let married: boolean;
+declare let married01: boolean;
 declare let simba: (string | number | undefined | boolean)[];
-declare let shcool: {
+declare let shcoolName: {
     score: (boolean | number)[];
     teacher: string;
     ftiend: string | string[];
@@ -268,3 +268,11 @@ type Array32 = [number, string, boolean];
 declare let arr32: Array32;
 declare const TsFunction2: ([level, favorite, work]: Array32) => void;
 declare const function12: (parameter: string) => void;
+declare class User01 {
+    name: string;
+    private familyName;
+    age: number;
+    constructor(name: string, age: number);
+    nameChnge(name: string): void;
+}
+declare let user05: User01;

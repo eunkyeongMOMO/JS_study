@@ -15,13 +15,13 @@ var my_age = 33;
 var my_plcBrt = 'seoul';
 //문제2
 var favoriteSinger = { '가수': '종현', '노래': '환상통' };
-var project = {
+var project01 = {
     member: ['ming', 'momo'],
     days: 22,
     started: false,
 };
 //타입을 미리정하기 애매할때?
-var age = 33;
+var age01 = 33;
 //UnionType 문자or숫자들어오는 변수일때 ->할당된 값에따라 가변적으로변함
 var members = ['4', 3];
 var newMembers = { name: 'simba', new: false };
@@ -35,19 +35,20 @@ var age2;
 //문제2 변수타입지정
 var User1 = 'lee';
 var user_age = 31;
-var married = false;
+var married01 = false;
 var simba = [User1, user_age, married];
 //문제3
-var shcool = {
+var shcoolName = {
     score: [77, 88, 100],
     teacher: 'phil',
     ftiend: 'john'
 };
-shcool.score[4] = false;
-shcool.ftiend = ['lee', shcool.teacher];
+shcoolName.score[4] = false;
+shcoolName.ftiend = ['lee', shcool.teacher];
 var person = { name: 'momo' };
 //?를 넣으면 옵션속성이 된다 (입력될수도 있고 입력 안될수도 있는 키)
 //함수에 타입 지정하는법, vuoid타입
+//subject_return
 var my_function2 = function (num) {
     return num * 5;
 };
@@ -476,3 +477,21 @@ var function12 = function (parameter) {
         parameter;
     } //이경우 never타입이 됨. 말이안될때 나오니까 디버깅할때 씀
 };
+//객체지향 문법에 도움이되는 문법
+var User01 = /** @class */ (function () {
+    function User01(name, age) {
+        //punlic붙으면 모든 자식들이 이용가능함 -> 기본값이기 때문에 설정안해도 됨
+        this.familyName = 'lee';
+        this.name = this.familyName + name;
+        this.age = age;
+        //파라미터 입력이됨으로 costructor씀
+    }
+    User01.prototype.nameChnge = function (name) {
+        this.familyName = name;
+    };
+    return User01;
+}());
+var user05 = new User01('simba', 5);
+user05.nameChnge('Gang');
+//private 수정하려면 미리 클래스 내부에 설정해둔 함수를 호출
+console.log(user05);

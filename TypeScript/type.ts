@@ -23,7 +23,7 @@ let favoriteSinger:{[key:string]:string}={'가수':'종현', '노래':'환상통
 //문제3
 type Project ={member:string[], days:number, started:boolean}
 
-let project:Project ={
+let project01:Project ={
     member:['ming','momo'], 
     days:22,
     started:false,
@@ -32,7 +32,7 @@ let project:Project ={
 
 //타입을 미리정하기 애매할때?
 
-let age:string |number = 33;
+let age01:string |number = 33;
 //UnionType 문자or숫자들어오는 변수일때 ->할당된 값에따라 가변적으로변함
 let members: (number|string)[]=['4',3];
 let newMembers: {new:boolean|number, name:string}={name:'simba',new:false};
@@ -53,24 +53,24 @@ let age2 : string|number;
 
 let User1:string ='lee';
 let user_age:undefined|number = 31;
-let married:boolean = false;
+let married01:boolean = false;
 let simba : (string|number|undefined|boolean)[] = [User1,user_age,married];
 
 
 //문제3
 
-let shcool:{score:(boolean|number)[], teacher:string, ftiend:string|string[]} ={
+let shcoolName:{score:(boolean|number)[], teacher:string, ftiend:string|string[]} ={
     score:[77,88,100],
     teacher:'phil',
     ftiend:'john'
 }
-shcool.score[4] =false;
-shcool.ftiend=['lee',shcool.teacher];
+shcoolName.score[4] =false;
+shcoolName.ftiend=['lee',shcool.teacher];
 let person:{name?: string} = {name : 'momo'}
 //?를 넣으면 옵션속성이 된다 (입력될수도 있고 입력 안될수도 있는 키)
 
 //함수에 타입 지정하는법, vuoid타입
-
+//subject_return
 const my_function2 =(num :number) :number =>{
     return num *5;
 }
@@ -688,3 +688,26 @@ const function12 = (parameter:string)=>{
         console.log(parameter)
     }else{parameter} //이경우 never타입이 됨. 말이안될때 나오니까 디버깅할때 씀
 }
+
+//객체지향 문법에 도움이되는 문법
+
+class User01{
+    public name;
+    //punlic붙으면 모든 자식들이 이용가능함 -> 기본값이기 때문에 설정안해도 됨
+    private familyName:string ='lee';
+    //private가 붙으면 class안에서만 수정, 이용가능함
+    age:number;
+    constructor(name:string,age:number){
+        this.name=this.familyName+name;
+        this.age=age;
+        //파라미터 입력이됨으로 costructor씀
+    }
+    nameChnge(name:string){
+        this.familyName=name;
+    }
+}
+let user05 = new User01('simba',5);
+user05.nameChnge('Gang');
+//private 수정하려면 미리 클래스 내부에 설정해둔 함수를 호출
+console.log(user05);
+

@@ -8,7 +8,7 @@ declare let 나이: unknown;
 declare let user: string;
 declare let age: any;
 declare let married: boolean;
-declare let 철수: (string | number | boolean)[];
+declare let 철수: (string | boolean | undefined)[];
 declare let shcool: {
     score: number[];
     teacher: string;
