@@ -54,7 +54,7 @@ let age2 : string|number;
 let User1:string ='lee';
 let user_age:undefined|number = 31;
 let married01:boolean = false;
-let simba : (string|number|undefined|boolean)[] = [User1,user_age,married];
+let simba : (string|number|undefined|boolean)[] = [User1,user_age,married01];
 
 
 //문제3
@@ -65,7 +65,7 @@ let shcoolName:{score:(boolean|number)[], teacher:string, ftiend:string|string[]
     ftiend:'john'
 }
 shcoolName.score[4] =false;
-shcoolName.ftiend=['lee',shcool.teacher];
+shcoolName.ftiend=['lee',shcoolName.teacher];
 let person:{name?: string} = {name : 'momo'}
 //?를 넣으면 옵션속성이 된다 (입력될수도 있고 입력 안될수도 있는 키)
 
@@ -689,7 +689,8 @@ const function12 = (parameter:string)=>{
     }else{parameter} //이경우 never타입이 됨. 말이안될때 나오니까 디버깅할때 씀
 }
 
-//객체지향 문법에 도움이되는 문법
+//객체지향 문법에 도움이되는 문법 public, private, 
+//static
 
 class User01{
     public name;
@@ -710,4 +711,5 @@ let user05 = new User01('simba',5);
 user05.nameChnge('Gang');
 //private 수정하려면 미리 클래스 내부에 설정해둔 함수를 호출
 console.log(user05);
+
 

@@ -36,7 +36,7 @@ var age2;
 var User1 = 'lee';
 var user_age = 31;
 var married01 = false;
-var simba = [User1, user_age, married];
+var simba = [User1, user_age, married01];
 //문제3
 var shcoolName = {
     score: [77, 88, 100],
@@ -44,7 +44,7 @@ var shcoolName = {
     ftiend: 'john'
 };
 shcoolName.score[4] = false;
-shcoolName.ftiend = ['lee', shcool.teacher];
+shcoolName.ftiend = ['lee', shcoolName.teacher];
 var person = { name: 'momo' };
 //?를 넣으면 옵션속성이 된다 (입력될수도 있고 입력 안될수도 있는 키)
 //함수에 타입 지정하는법, vuoid타입
@@ -477,7 +477,8 @@ var function12 = function (parameter) {
         parameter;
     } //이경우 never타입이 됨. 말이안될때 나오니까 디버깅할때 씀
 };
-//객체지향 문법에 도움이되는 문법
+//객체지향 문법에 도움이되는 문법 public, private, 
+//static
 var User01 = /** @class */ (function () {
     function User01(name, age) {
         //punlic붙으면 모든 자식들이 이용가능함 -> 기본값이기 때문에 설정안해도 됨
