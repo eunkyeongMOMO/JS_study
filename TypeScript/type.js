@@ -687,3 +687,17 @@ Box03.draw();
 Box03.draw();
 Box03.draw();
 //------------------------------------
+//타입을 파라미터로 입력하는 Generic
+//narrowing 확장성이 있음.
+var function02 = function (x) {
+    return x[0];
+};
+var a = function02([3, 2]);
+var b = function02(['number01', 'number']);
+console.log(a);
+var function03 = function (x) {
+    //타입 파라미터 제한, 타입이 넘버속성을 가지고있는지?
+    return x.length;
+};
+var v = function03('안녕하세영!');
+console.log(v);

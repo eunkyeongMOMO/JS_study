@@ -882,3 +882,25 @@ Box03.draw();
 Box03.draw();
 
 //------------------------------------
+
+
+//타입을 파라미터로 입력하는 Generic
+//narrowing 확장성이 있음.
+const function02=<MyType>(x:MyType[]):MyType=>{
+    return x[0];
+}
+let a = function02<number>([3,2]);
+let b = function02<string>(['number01','number']);
+
+console.log(a);
+
+
+interface LengthCheck{ length : number}
+
+const function03=<Type extends LengthCheck>(x:Type)=>{
+    //타입 파라미터 제한, 타입이 넘버속성을 가지고있는지?
+    return x.length;
+}
+
+let v = function03<string>('안녕하세영!');
+console.log(v);

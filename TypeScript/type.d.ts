@@ -335,3 +335,11 @@ declare class Square {
 declare let Box: Square;
 declare let Box02: Square;
 declare let Box03: Square;
+declare const function02: <MyType>(x: MyType[]) => MyType;
+declare let a: number;
+declare let b: string;
+interface LengthCheck {
+    length: number;
+}
+declare const function03: <Type extends LengthCheck>(x: Type) => number;
+declare let v: number;
