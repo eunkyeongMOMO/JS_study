@@ -203,7 +203,15 @@ const solution19 = (money)=>{
 solution19(15000);
 
 //문제 20
+const Answer20 = document.querySelector('.answer20');
+const solution20 = (numbers)=>{
+    let result= numbers.reduce((prev, cur)=>{return prev+cur},0);
+    let division = Math.floor(result/(numbers.length+1));
+    Answer20.innerHTML+=`입력한 배열은 ${numbers}, 배열의 총합은 ${result}, 반올림한 평균값은 ${division}입니다.<br>`
+}
 
+solution20([2,5,6,8,9,15]);
+solution20([7,8,9,45]);
 
 //문제 21
 
@@ -237,10 +245,12 @@ const Answer23 =document.querySelector('.answer23');
 
 const solution23 = (numbers, num01, num02) => {
     let arryFilter=[];
-
-
+    for(let i =num01; i<=num02; i++){
+        arryFilter.push(numbers[i]); 
+    }
+    Answer23.innerHTML=`입혁한 ${numbers}에서 ${num01}부터 ${num02}까지의 수만 출력한 것은 ${arryFilter}`
 }
-solution23([2,5,7,8,9,12]);
+solution23([2,5,7,8,9,12],2,5);
 
 
 //문제 24
@@ -333,3 +343,26 @@ const solution29 = (number, numList) =>{
     Answer29.innerHTML=`입력한 ${numList}중, ${number}의 배수들은 ${newNumList}입니다.`
 }
 solution29(3, [3,5,6,9,15,44,16]);
+
+
+//문제33
+
+const Answer33=document.querySelector('.answer33');
+
+const solution33= (angle)=>{
+    let result ='';
+     if(angle===180){
+        result='4.평각'
+    }else if(angle===90){
+        result='2.직각'}
+    else if(0 < angle && angle < 90){
+        result='1.예각'
+    }else if(90<angle && angle <180){
+        result='3.둔각'}
+    
+   
+Answer33.innerHTML+=`입력한 각도는 ${angle}이고, ${result}입니다.<br>`
+}
+solution33(23);
+solution33(160);
+solution33(180);
