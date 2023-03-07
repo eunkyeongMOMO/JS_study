@@ -126,14 +126,18 @@ solution8(40);
 solution8(22);
 
 //문제9
-const Answer9 = document.querySelector('.answer09');
-const solution9 = (my_string,num) =>{
-    // for(let i=0; i<=my_string.length-1; i++){
-    //    for(let j=0; j=num; j++){    
-    //       // Answer9.innerHTML+=my_string[i];
-    // }}
-}
-solution9('simba',3);
+// const Answer9 = document.querySelector('.answer09');
+// const solution9 = (my_string,num) =>{
+//     let result=[];
+//     let StringArray=my_string.split('');
+//     for(let i=0; i=StringArray.length; i++){
+//        for(let j=0; j=num; j++){    
+//           result.push(StringArray[i]);
+//     }}
+//     let joinString=result.join();
+//     Answer9.innerHTML=`${joinString}`
+// }
+//solution9('simba',3);
 //리핏함수에서 에러남..왜안되는지 이유를 모르겠음. 머리과부하걸림 짜증남. 
 
 //문제10
@@ -366,3 +370,18 @@ Answer33.innerHTML+=`입력한 각도는 ${angle}이고, ${result}입니다.<br>
 solution33(23);
 solution33(160);
 solution33(180);
+
+//문제34
+
+const Answer34=document.querySelector('.answer34');
+
+const solution34= (my_string)=>{
+    let result=[];
+    const StringArray=my_string.split('');
+    const filter = StringArray.filter((value, index)=>{
+        return StringArray.indexOf(value)===index;
+    })
+    const sortArray=filter.sort();
+Answer34.innerHTML+=`입력된 글자는 ${my_string}이고, 중복을 제외하고 사전순으로 배열한결과 ${sortArray}`
+}
+solution34("something you like but shouldn't like");
