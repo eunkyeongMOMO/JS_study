@@ -371,17 +371,44 @@ solution33(23);
 solution33(160);
 solution33(180);
 
-//문제34
+//문제35
 
-const Answer34=document.querySelector('.answer34');
+//문제36
 
-const solution34= (my_string)=>{
+const Answer36=document.querySelector('.answer36');
+
+const solution36= (balls, share)=>{
+    const factorial=(number)=>{
+       let returnValue =BigInt(1);
+       for(let i=number; i>= 2; i--){
+         returnValue*=BigInt(i);
+       }
+       return returnValue;
+    } 
+    let case02 = factorial(balls)/(factorial((balls-share))*factorial(share));
+Answer36.innerHTML+=`머쓱이가 가지고 있는 구슬수는 ${balls}개, 이걸 친구한테 ${share}개 나눠줄때, 경우의 수는 ${case02}개이다`
+}
+solution36(5,3);
+
+//문제37
+
+const Answer37=document.querySelector('.answer37');
+
+const solution37= (my_string)=>{
     let result=[];
     const StringArray=my_string.split('');
     const filter = StringArray.filter((value, index)=>{
         return StringArray.indexOf(value)===index;
     })
-    const sortArray=filter.sort();
-Answer34.innerHTML+=`입력된 글자는 ${my_string}이고, 중복을 제외하고 사전순으로 배열한결과 ${sortArray}`
+    const filter02 = StringArray.filter((value, index)=>{
+        return StringArray.indexOf(value)!==index;
+    })
+    let sortArray=filter.sort();
+    if(filter02.length==0){sortArray='[]'}
+Answer37.innerHTML+=`입력된 글자는 ${my_string}이고, 중복을 제외하고 사전순으로 
+배열한결과 ${sortArray}<br>`
 }
-solution34("something you like but shouldn't like");
+solution37("something you like but shouldn't like");
+solution37("simba!");
+//문제38
+
