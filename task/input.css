@@ -1,0 +1,39 @@
+
+/* reset css */
+* { box-sizing: border-box; } 
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,
+pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,
+strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,
+ol,ul,li,fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,article,aside,
+canvas,details,embed,figure,figcaption,footer,header,
+hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { margin: 0; padding: 0; border: 0; font-size: 100%; } 
+article,aside,details,figcaption,figure,footer,
+header,hgroup,menu,nav,section { display: block; } 
+body { font-family: 'Noto Sans KR', sans-serif; font-size: 16px; color: #333; } 
+ol,ul { list-style: none; } 
+table { border-collapse: collapse; border-spacing: 0; } 
+address { font-style: normal; } 
+a { color: #333; text-decoration: none; } 
+img { border: 0; vertical-align: top; } 
+.hidden { display: block; color: #fff; position: absolute; left: -1000px; top: 0; height: 1px; width: 1px; overflow: hidden; } 
+html{scroll-behavior: smooth;}
+
+
+/* content css */
+
+.formWrap{width: 80%; padding: 30px; margin: 20px auto; background: #019756; border-radius: 30px;}
+.formWrap form{width: 80%; margin: 0 auto; text-align: start;}
+.formWrap table{width: 100%;}
+.formWrap tr{ margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;}
+.formWrap th{color: #fff;} 
+.formWrap button{background: #d9ff00; color: #333; border: none; padding: 10px; border-radius: 10px; margin: 10px auto; display: block; width: 30%;} 
+.formWrap td{width: 70%;}
+.formWrap p.text{margin-top: 5px; color:#fff; font-size: .9rem;}
+.formWrap td input{width: 100%; padding: 10px; border: 1px solid #fff; opacity: .7; border-radius: 10px; background: none; color: #fff;}
+.formWrap td input::placeholder{color: #fff;}
+.infoText{line-height: 1.5rem; padding: 50px; margin: 50px auto; 
+    width: 80%; background-color: #fffeee; border-radius: 20px; white-space:pre-line; display: none;}
+.active{display: block;}
+.formWrap.img label{display: block; margin-bottom: 30px; padding: 10px; border: 1px solid #fff; opacity: .7; border-radius: 10px; background: none; color: #fff;box-shadow: 2px 2px 10px 5px rgba(255,255,255,.2);}
+.formWrap.img input{display: none;}
