@@ -371,6 +371,23 @@ solution33(23);
 solution33(160);
 solution33(180);
 
+
+//문제 31
+
+// Answer31 =document.querySelector('.answer31');
+
+// const solution31 = (my_string) =>{
+//    let lower= my_string.split(/[a-z]/g);
+//    let upper= my_string.split(/[A-Z]/g);
+//    let newString=[];
+//    lower.forEach((item)=>{if(item!=""){
+//     newString.push(item.ToLowerCase())
+// }})
+//    console.log(lower)
+//     Answer31.innerHTML=``
+// }
+// solution31('ADRheightWidthGG');
+
 //문제35
 
 //문제36
@@ -412,3 +429,11 @@ solution37("something you like but shouldn't like");
 solution37("simba!");
 //문제38
 
+//문제49
+
+const Answer49 = document.querySelector('.answer49');
+
+const solution49 = (my_string)={
+
+}
+solution49();
