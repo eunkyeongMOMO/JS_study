@@ -1,0 +1,16 @@
+{
+  "name": "regexp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "expression.js",
+  "scripts": {
+   "dev":"parcel expression.html",
+   "build":"parcel build expression.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
