@@ -179,19 +179,38 @@ solution13('nemuinanoni..','ieniikiti');
 
 //문제16
 const Answer16 =document.querySelector('.answer16');
-// const solution16 = (my_string) => {
-// const noOverlap = (my_string) => {[...new Set(my_string)]};
-//     Answer16.innerHTML = `원래배열은 [${my_string}], 
-//     중복값을 제거한 배열은 ${noOverlap}<br>`
-// }
-//solution16([11,22,44,33,22])
-// const solution16_1 = (my_string) =>{
-//     let noOverlap = my_string.filter((value,index)=>{indexOf( value ) === index});
-//     Answer16.innerHTML += `원래배열은 ${my_string}, 중복값을 제거한 배열은 ${noOverlap}`
-// }
-// solution16_1([11,22,55,66,33,11,33,44,33,22])]
 
-//머리 터질거같음...에러왜나는데!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+const solution16_1 = (my_string) =>{
+    let noOverlap = my_string.filter((value,index,array)=>{return array.indexOf(value)===index});
+
+    Answer16.innerHTML += `원래배열은 ${my_string}, 중복값을 제거한 배열은 ${noOverlap}`
+}
+solution16_1([11,22,55,66,33,11,33,44,33,22]);
+
+//문제17
+
+const Answer17 =document.querySelector('.answer17');
+
+const solution17 = (rsp) => {
+    let win ='';
+    if(rsp.match(/2{1,}/g)){
+        win='0' 
+    }
+    if(rsp.match(/5{1,}/g)){
+        win='2' 
+    }
+    if(rsp.match(/0{1,}/g)){
+        win='5' ;
+    }
+    
+    console.log(rsp.match(/5{1,}/g)+rsp.match(/2{1,}/g));
+    console.log(win);
+    Answer17.innerHTML =+ `입력한 ${rsp}를 이기는 거는 ${win}입니다. <br>`
+}
+
+solution17('250');
+solution17('0');
+// 왜 nan?
 
 //문제19
 
@@ -321,7 +340,7 @@ solution27('tomorrow');
 //문제 28
 
 
-Answer28 =document.querySelector('.answer28');
+const Answer28 =document.querySelector('.answer28');
 const solution28 = (k,numbers) =>{
     let stringK=k.toString();
     console.log(stringK);
@@ -335,7 +354,7 @@ solution28(3, [5,6,9,15,3,44,16]);
 
 //문제 29
 
-Answer29 =document.querySelector('.answer29');
+const Answer29 =document.querySelector('.answer29');
 
 const solution29 = (number, numList) =>{
     let newNumList=[];
