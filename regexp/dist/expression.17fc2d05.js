@@ -126,11 +126,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
 //정규표현식 시작
 
-var str = "\n010-2566-7420\neunkyeong01234@gmail.com\nhttps://www.wavve.com/player/vod?programid=PRG_S01_P460810577&page=1\nLorem Ipsum is simply dummy text of \nthe printing and typesetting industry.\nLorem Ipsum has been the industry's standard dummy text ever since the 1500s\nabbcccdddd.\n";
+var str = "\n010-2566-7420\neunkyeong01234@gmail.com\nhttps://www.wavve.com/player/vod?programid=PRG_S01_P460810577&page=1\nLorem Ipsum is simply dummy text of \nthe printing and typesetting industry.\nLorem Ipsum has been the industry's standard dummy text ever since the 1500s\nabbcccdddd\nhttp://localhost:1234\n\uC54C\uB974\uB808\uAE30 \uC62C\uB77C\uC628\uB2E4 \uD751\uD751\n";
 
 //const regexp = new RegExp('the','g');
 
-var regexp = /\.$/gim;
+// const regexp = /\bL\w{1,}\b/g; -> 대문자 L로 시작하는 단어를 찾아줌
+// const regexp = /\d{1,}/g; -> 숫자로 시작하는 문자열 찾아줌 
+var regexp = /\d/g;
 console.log(regexp.test(str));
 console.log(str.replace(regexp, 'THE'));
 console.log(str);
@@ -138,6 +140,10 @@ console.log(str);
 //console.log(str);
 
 console.log(str.match(regexp));
+console.log(str.match(/.{1,}(?=\@)/g),
+//이메일에서 아이디만 추출
+str.match(/(?<=\@).{1,}/g) //이메일에서 @기준 뒤에만 추출
+);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -163,7 +169,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56748" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50702" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
