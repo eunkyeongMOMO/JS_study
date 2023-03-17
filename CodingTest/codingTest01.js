@@ -194,23 +194,22 @@ const Answer17 =document.querySelector('.answer17');
 const solution17 = (rsp) => {
     let win ='';
     if(rsp.match(/2{1,}/g)){
-        win='0' 
+        win+='0' 
     }
     if(rsp.match(/5{1,}/g)){
-        win='2' 
+        win+='2' 
     }
     if(rsp.match(/0{1,}/g)){
-        win='5' ;
+        win+='5' ;
     }
     
     console.log(rsp.match(/5{1,}/g)+rsp.match(/2{1,}/g));
     console.log(win);
-    Answer17.innerHTML =+ `입력한 ${rsp}를 이기는 거는 ${win}입니다. <br>`
+    Answer17.innerHTML += `입력한 ${rsp}를 이기는 거는 ${win}입니다. <br>`
 }
 
 solution17('250');
 solution17('0');
-// 왜 nan?
 
 //문제19
 
@@ -448,6 +447,25 @@ solution37("something you like but shouldn't like");
 solution37("simba!");
 //문제38
 
+
+
+//문제39
+
+const Answer39 = document.querySelector('.answer39');
+
+const solution39 = (my_string) => {
+   const regexp = /^[0-9]{4}$|^[0-9]{6}$/
+   let result=regexp.test(my_string);
+   let resultString='';
+   if(result==true){
+    resultString='맞음'
+   }else{resultString='맞지않음'}
+   Answer39.innerHTML+=`입력한 문자는 ${my_string}이고, 해당값은 조건에 ${resultString}<br>`
+}
+solution39('123544')
+solution39('12a')
+
+
 //문제49
 
 const Answer49 = document.querySelector('.answer49');
@@ -455,4 +473,3 @@ const Answer49 = document.querySelector('.answer49');
 const solution49 = (my_string)={
 
 }
-solution49();
