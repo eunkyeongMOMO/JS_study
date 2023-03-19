@@ -3,8 +3,12 @@ const move_cont = (cont)=>{
 }
 
 const VideoSample = document.querySelector('.video01');
-const VideoSampleHeight = VideoSample.offsetTop-300;
+const VideoSampleHeight = VideoSample.offsetTop-500;
 console.log(VideoSampleHeight);
+
 window.addEventListener('scroll', ()=>{
-    VideoSample.play();
+console.log(window.scrollY);
+if(window.scrollY>=VideoSampleHeight){
+VideoSample.play();
+}
 })
