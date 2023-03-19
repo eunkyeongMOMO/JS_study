@@ -37,3 +37,4 @@ header{width: 100%;background: #fff; position: fixed; z-index: 100;}
 
 .EventWrap .content01 a{display: block; width: 40%; background: #71bfff; font-size: 1.25rem; color:#fff; font-weight: 500;
 position: relative; top:40%; left: 50%; transform: translate(-50%,-50%); margin-bottom: 20px; padding: 20px; border-radius: 20px; text-align: center;}
+.EventWrap .content04 video{width: 80%; margin: 0 auto; display: block;}
