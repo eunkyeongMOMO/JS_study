@@ -18,7 +18,7 @@ DOM 문제점?
  
  가상DOM은 실제 DOM에ㅔ서 처리하는 방식이 아닌 Virtual DOM과 메모리에서 미리 처리하고 저장한 후 실제 DOM과 동기화 하는 프로게이밍 개념.
  
- | DOM | Virtual DOM
+구분 | DOM | Virtual DOM
 --|--|--
 업데이트 | 느리다 | 빠르다
 HTML업데이트 방식 | 새로운  element가 업데이트된 경우 새로운 DOM생성| 새로운element가 업데이트 된 경우 새로운 가상 DOM 생성 후 이전 DOM과 비교 후 차이나는 DOM만 업데이트
