@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./input.css">
 </head>
 <body>
+    
     <div class="formWrap">
         <form action="" name="eventForm">
         <table>
@@ -17,7 +18,7 @@
                     <label for="name">이름</label>
                </th> 
                 <td>
-                    <input type="text" id="name" placeholder="이름을 입력하세요" onkeydown="infoActive('infoText')">
+                    <input onclick="infoActive('infoText')" type="text" id="name" placeholder="이름을 입력하세요" onkeydown="infoActive('infoText')">
                     <p class="text" id="nameCheck"></p>
                 </td>
             </tr>
@@ -32,10 +33,6 @@
             </tr>
         </tbody>
         </table>
-       
-        <button>입력하기</button>
-        </form>
-    </div> 
     
     <div class="infoText">
             제1조 [개인정보의 처리 목적]
@@ -68,13 +65,18 @@
             마. 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년(전자상거래 등에서의 소비자보호에 관한 법률)
             바. 세금계산서, 영수증 등 거래내역 관련 정보 : 5년(부가가치세법)
     </div>
-    <div class="formWrap img">
+
+</div>
+
+<button onclick="formClick()"> 폼 입력하기</button>
+</form> 
+    <!-- <div class="formWrap img">
         <form action="">
             <label for="img">이미지를 첨부해주세요</label>
             <input type="file" name="img" id="img">
         <button>입력하기</button>
         </form>
-    </div> 
+    </div>  -->
 
     <script src="./input.js"></script>
 </body>

@@ -22,18 +22,19 @@ html{scroll-behavior: smooth;}
 
 /* content css */
 
-.formWrap{width: 80%; padding: 30px; margin: 20px auto; background: #019756; border-radius: 30px;}
+.formWrap{width: 80%; padding: 30px; position: absolute; top:20px; left:50%; transform: translateX(-50%); z-index: 55; margin: 20px auto; display: none; background: #019756; border-radius: 30px;}
+.formWrap.active{display: block;}
 .formWrap form{width: 80%; margin: 0 auto; text-align: start;}
 .formWrap table{width: 100%;}
 .formWrap tr{ margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;}
 .formWrap th{color: #fff;} 
-.formWrap button{background: #d9ff00; color: #333; border: none; padding: 10px; border-radius: 10px; margin: 10px auto; display: block; width: 30%;} 
+button{background: #d9ff00; margin-top: 300px; color: #333; border: none; padding: 10px; border-radius: 10px; margin: 10px auto; display: block; width: 30%;} 
 .formWrap td{width: 70%;}
 .formWrap p.text{margin-top: 5px; color:#fff; font-size: .9rem;}
 .formWrap td input{width: 100%; padding: 10px; border: 1px solid #fff; opacity: .7; border-radius: 10px; background: none; color: #fff;}
 .formWrap td input::placeholder{color: #fff;}
-.infoText{line-height: 1.5rem; padding: 50px; margin: 50px auto; 
-    width: 80%; background-color: #fffeee; border-radius: 20px; white-space:pre-line; display: none;}
-.active{display: block;}
+.infoText{line-height: 1.5rem; padding: 20px; margin: 50px auto; display: none;
+    width: 96%; background-color: #fffeee; white-space:pre-line; height: 30vw; overflow-y: scroll;}
+.infoText.active{display: block;}
 .formWrap.img label{display: block; margin-bottom: 30px; padding: 10px; border: 1px solid #fff; opacity: .7; border-radius: 10px; background: none; color: #fff;box-shadow: 2px 2px 10px 5px rgba(255,255,255,.2);}
 .formWrap.img input{display: none;}
