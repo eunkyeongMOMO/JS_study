@@ -7,14 +7,13 @@ const NameCheck = document.querySelector('#nameCheck');
 const Phone = document.querySelector('#phone');
 const PhoneCheck = document.querySelector('#phoneCheck');
 
-
+//버튼 한개로 폼 팝업 띄우고 입력값 받은뒤에 폼 전송하기
 const formClick = ()=>{
-    let clickCount =0;
-    if(clickCount==0){
+    let popup=false;
+    if(!popup){
+        popup=true;
         document.querySelector('.formWrap').classList.add('active');
-        clickCount++;
-    }else if(clickCount==1){
-        document.querySelector('.formWrap').classList.add('active');
+    }
         if(Name.value == ''){
             NameCheck.innerHTML='아이디를 입력하세요'
             Name.focus();
@@ -26,7 +25,6 @@ const formClick = ()=>{
             return false;
         }
 
-        // document.eventForm.submit();
-    }
+       document.eventForm.submit()
 }
 // 유효성검사/ajax이용은 집에가서/
