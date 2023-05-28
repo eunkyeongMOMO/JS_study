@@ -13,3 +13,7 @@ for(let i =0; i<=TabBtn.length; i++){
 // querySelectorAll에는 classList.remove() 사용하면 에러나니까 for문안에
 // for문, 혹은 forEach문써서 해결해야함.
 
+$("#barGraph").width(Math.ceil(twidth * (remain_time / total_time)) + "px").offset({
+    top: origin_pos.left + twidth * ((total_time - remain_time) / total_time),
+    top: origin_pos.bottom
+});

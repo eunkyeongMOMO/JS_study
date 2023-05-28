@@ -15,7 +15,7 @@ const formClick = ()=>{
         document.querySelector('.formWrap').classList.add('active');
     }
         if(Name.value == ''){
-            NameCheck.innerHTML='아이디를 입력하세요'
+            NameCheck.innerHTML='이름을 입력하세요'
             Name.focus();
             return false;
         }
