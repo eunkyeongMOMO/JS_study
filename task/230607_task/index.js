@@ -24,18 +24,19 @@ window.onload = function(){
 
     } 
 
+    let btnClick =false;
+    AllBtn.addEventListener('click',()=>{
+        AllBtnClick();
+    })
+
     const AllBtnClick = () =>{
-        let btnClick = false;
-        if(btnClick === false){
-            AllBtn.addEventListener('click', ()=>{
+        if(btnClick===false){
+            console.log('작동되고있단다')
              wordList.map( el => el.classList.add('on'))
              btnClick = true;
-        })}else{
-             AllBtn.addEventListener('click', ()=>{
+        }else{
+            console.log('작동되고있단다2222');
              wordList.map( el => el.classList.remove('on'))
             btnClick = false;
-        })
-    }}
-    AllBtnClick()
+        }}
 }
-
