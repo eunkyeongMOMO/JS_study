@@ -8,7 +8,7 @@ window.onload = function(){
     //직접 요소를 건들경우, 에러가나는 경우가 생김으로 array로 변환해서 사용
 
     window.addEventListener('scroll',(e) => {
-        ListOn();
+        ListOn2();
     })
     //  화면 가운데 값 구해서 화면 가운데에 왔을때만 보이게 (근데 이거 아님..ㅠ.ㅠ)
     const ListOn = () => {
@@ -20,9 +20,17 @@ window.onload = function(){
         wordList[target].classList.add('on')
     }
 
-    const ListOn2 = () =>{
+  
+    const ListOn2 = () => {
+        let ListHeight = wordList[1].offsetTop; //li 요소 한개의 높이값
+        for (let i = 0; i < wordList.length; i++) { // li요소 갯수에 맞춰 반복문 실행
+            if (scrollY > wordList[i].offsetTop-ListHeight) { // scroll 된 값 > li요소 좌표값 - li요소 높이값
+                wordList.map(el => el.classList.remove('on')); //모든 li의 class중 on이 있으면 지우기
+                wordList[i].classList.add('on') // 조건에 맞는 li에만 class on add
+            }
+        }
 
-    } 
+    }
 
     let btnClick =false;
     AllBtn.addEventListener('click',()=>{
