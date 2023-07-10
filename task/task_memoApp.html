@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>메모 앱</title>
+    <meta charset="UTF-8" />
+    <style>
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="heder">
+        <h1>Memo 앱</h1>
+        <input placeholder="메모 입력" type="text" id="memo-text" />
+        <button id="add-memo">메모 추가</button>
+        <button id="remove-all">모두 삭제</button>
+      </div>
+
+      <div class="memo-list">
+        <div class="memos"></div>
+      </div>
+    </div>
+    <script src="./memo.js"></script>
+  </body>
+</html>
+
+

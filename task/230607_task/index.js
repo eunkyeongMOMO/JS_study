@@ -40,3 +40,9 @@ window.onload = function(){
             btnClick = false;
         }}
 }
+const fuc = (solution, solution2) =>{
+   return solution[0] > solution2[0] ? 1 : solution[1] > solution2[1] ? 1 : solution[2] > solution2[2] ? 1 :0 
+  }
+  console.log( fuc([2021,1,3],[2021,3,5]))
+  
+ 
