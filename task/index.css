@@ -1,0 +1,76 @@
+html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed,
+ figure, figcaption, footer, header, hgroup,
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video { margin: 0; padding: 0; outline: 0; font-size: 100%; /*font: inherit; */
+ /*vertical-align: baseline; */
+ box-sizing: border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; /* word-break:keep-all; */ user-select: none; } 
+
+ body { /*line-height: 1; */ -webkit-text-size-adjust:none; -moz-text-size-adjust:none; -ms-text-size-adjust:none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family:"Noto Sans KR", "Roboto", sans-serif; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } 
+
+button { color: #222; cursor:pointer; padding:0; font-size:inherit; outline:0; border:0; -webkit-border-radius: 0; border-radius: 0; -webkit-appearance: none; -moz-appearance: none; appearance: none; border:0; background-color:transparent; -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; } 
+ ol, ul, li { list-style: none; } 
+ button { } 
+ button::-moz-focus-inner { padding:0; border:0; } 
+ :focus { outline: none; } 
+ .inner { padding: 0 24px; } 
+ .pos_r { position: relative; } 
+.posSticky { position: sticky; top: 0; left: 0; z-index: 999; background-color: rgba(255,255,255, 0.95); backdrop-filter: blur(4px); } 
+.subHeader { position: relative; box-sizing: content-box; width: 100%; height: 60px; line-height: 60px; border-bottom: 1px solid #e7e9ec; background-color: #fff; z-index: 2; } 
+.subHeader h2 { font-size: 16px; font-weight: 500; letter-spacing: -0.96px; text-align: center; } 
+.subHeader .btnWrap { position: absolute; top: 50%; transform: translateY(-50%); z-index: 999; } 
+ .subHeader .btnWrap.left { left: 16px; } 
+.subHeader .btnWrap.right { right: 16px; } 
+
+.topTab { border-bottom: 2px solid #f9f9f9; } 
+.topTab ul li { float: left; width: calc((100% - 1px) / 2); height: 52px; line-height: 52px; } 
+.topTab ul li button { position: relative; width: 100%; height: 100%; display: block; font-size: 14px; letter-spacing: -0.56px; color: #888; text-align: center; } 
+.topTab ul li.on button { font-weight: 500; color: #4890fc; } 
+.topTab ul li.on button::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background-color: #4890fc; display: inline-block; position: absolute; left: 50%; transform: translateX(-50%); bottom: 6px; } 
+
+.menuBar { width: 100%; height: 52px; display: flex; justify-content: space-between; align-items: center; position: relative; } 
+
+ .btnIcon { font-size: 13px; letter-spacing: -0.78px; padding-left: 24px; position: relative; &::before { content: ""; width: 18px; height: 18px; display: inline-block; position: absolute; top: 50%; transform: translateY(-50%); left: 0; } 
+ }
+
+ .btnSort::before { background: url("https://gscdn.hackers.co.kr/champ/images/studentvoca/myvoca/ic_sort.png") no-repeat center center /
+ contain; } 
+
+ .btnReset::before { background: url("https://gscdn.hackers.co.kr/champ/images/studentvoca/myvoca/ic_reset.png") no-repeat center center /
+ contain; } 
+
+ ul.btnList li { float: left; border-radius: 12px; border: solid 1px #e7e9ec; min-width: 36px; height: 36px; line-height: 34px; margin-left: 8px; } 
+ ul.btnList li button { width: 100%; height: 100%; vertical-align: top; text-align: center; } 
+.btnMode { padding: 0 12px 0 36px; } 
+.btnMode::before { background-image: url("https://gscdn.hackers.co.kr/champ/images/studentvoca/myvoca/ic_mode.png"); background-repeat: no-repeat; background-size: 300%; background-position-x: 0; background-position: 100%; background-position-y: center; left: 12px; } 
+
+ .btnFilter::before { content: ""; width: 18px; height: 18px; display: inline-block; background: url("https://gscdn.hackers.co.kr/champ/images/studentvoca/myvoca/ic_filler.png") no-repeat center
+ center / contain; vertical-align: text-top; } 
+
+
+ .list_wrap { padding-bottom: 65vh; } 
+
+ .list_wrap li { width: 100%; min-height: 52px; position: relative; } 
+ .list_wrap li .wordArea { display: flex; align-items: flex-start; padding: 8px 24px; position: relative; z-index: 2; overflow: hidden; transition: transform 0.3s; background-color: #fff; } 
+ .list_wrap li .wordArea .word { width: calc((100% - 48px) * 0.43); display: inline-block; position: relative; margin-right: 12px; } 
+ .list_wrap li .wordArea .mean { width: calc((100% - 36px) * 0.57); display: inline-block; position: relative; } 
+ .list_wrap li .wordArea .word > *,
+ .list_wrap li .wordArea .mean > * { display: inline-block; width: 100%; padding: 7px 12px; } 
+ .list_wrap li.on .wordArea { box-shadow: 0 12px 12px 0 rgba(57, 152, 123, 0.24); background-color: #bdfee1 !important; } 
+ .list_wrap li.on 
+ .list_wrap.celloActive li:not(.on) .mean { display: flex; justify-content: center; align-items: center; } 
+
+ .list_wrap.celloActive li:not(.on) .mean button { width: 100%; height: 100%; line-height: 19px; } 
+
+ .list_wrap.celloActive li:not(.on) .mean button::before { content: ""; width: 100%; height: 100%; border-radius: 6px; background-color: #f1f8f5; position: absolute; top: 0; left: 0; z-index: 2; } 
+
+ .list_wrap.celloActive li:not(.on) .mean button::after { content: "셀로판보기"; position: absolute; top: 50%; left: 0; 
+    transform: translateY(-50%); z-index: 3; width: 100%; font-size: 11px; letter-spacing: -0.22px; text-align: center; color: #adcec4; } 
