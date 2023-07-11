@@ -63,20 +63,41 @@ class Item {
     //done
     const doneCheck = document.createElement('input');
     doneCheck.type='checkbox';
-    if(doneCheck.checked===true){
-      div.classList.add('done');
+    doneCheck.addEventListener("click",(e)=>{
+      if(doneCheck.checked===true){
+      let doneDiv = e.target.parentElement;
+      console.log(doneDiv);
+      doneDiv.classList.add('done');
       EditButton.style.display="none";
       labelAdd.style.display="none";
+      rankingInput.style.display="none";
+      rankingSave.style.display="none";
     }
+    })
+ 
     //우선순위
     const rankingInput = document.createElement('input'),
     rankingSave = document.createElement('button'),
+    numbercheck= /[0-9]/,
     rankingArr =[];
-
-    if(rankingInput.value!==''){
+    rankingSave.innerText ="우선순위"
     
-    }
-    div.append(Input, EditButton, DeleteButton, labelInput,labelAdd);
+    let arr = [...document.querySelectorAll('.memos div')]
+    rankingSave.addEventListener("click", (e)=>{
+      if(rankingInput.value!=/\d/){
+        alert('순위는 숫자만 입력가능합니다.');
+        rankingInput.value='';
+        rankingInput.focus();
+      }else if(rankingInput.value!==''){
+        e.target.parentElement.classList.add('ranking'+rankingInput.value);
+        rankingArr.push(e.target.parentElement);
+      console.log(rankingArr);
+      }
+      
+
+    })
+
+    div.append(rankingInput,rankingSave,Input, EditButton, DeleteButton, labelInput,labelAdd,doneCheck);
     memoList.appendChild(div);
     div.classList.add('add_memo');
   }
