@@ -29,31 +29,53 @@ class Item {
     // 삭제 버튼
     const DeleteButton = document.createElement("button");
     DeleteButton.innerText = "삭제";
-      DeleteButton.addEventListener("click", () => {
-      memoList.removeChild(div);});
+    DeleteButton.addEventListener("click", () => memoList.removeChild(div));
     DeleteButton.classList.add("delete-button");
 
     //라벨추가
-    const labelInput = document.createElement("input");
-    const labelAdd = document.createElement("button");
+    const labelInput = document.createElement("input"),
+    labelAdd = document.createElement("button"),
+    colorSelect = document.createElement('select'),
+    Label = document.createElement("span"); 
+    colorSelect.classList.add('colorSelect');
+    colorSelect.innerHTML=`
+      <option value="">LabelColor</option>
+      <option value="blue">blue</option>
+      <option value="orange">orange</option>
+      <option value="pink">pink</option>
+      <option value="yellow">yellow</option>
+      <option value="green">green</option>`
     labelInput.style.display= "none"
-    labelAdd.innerText="라벨 추가";
+    labelAdd.innerText="라벨 추가";  
+  
     labelAdd.addEventListener("click", ()=>{
       labelInput.style.display= "inline-block";
+      labelAdd.after(colorSelect);
       if(labelInput===""){
         alert('라벨에 들어갈 글자를 입력하세요!')
       }else{
-      const Label = document.createElement("span"); 
+      colorSelect.addEventListener("change",(e)=>{
+        Label.classList.add(e.target.value);})
        Label.innerText=labelInput.value;
-       Label.classList.add('label');
-       Input.before(Label)
+       Input.before(Label);
       }
       })
-
+    //done
+    const doneCheck = document.createElement('input');
+    doneCheck.type='checkbox';
+    if(doneCheck.checked===true){
+      div.classList.add('done');
+      EditButton.style.display="none";
+      labelAdd.style.display="none";
+    }
     //우선순위
-    const rankingInput = document.createElement('input');
+    const rankingInput = document.createElement('input'),
+    rankingSave = document.createElement('button'),
+    rankingArr =[];
+
+    if(rankingInput.value!==''){
     
-    
+    }
     div.append(Input, EditButton, DeleteButton, labelInput,labelAdd);
     memoList.appendChild(div);
     div.classList.add('add_memo');
