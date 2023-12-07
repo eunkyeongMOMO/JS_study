@@ -1,4 +1,10 @@
-const Todo = () =>{
+import { MongoClient } from "mongodb";
+import { connectDB } from "../../../util/database";
+
+async function Todo() {
+    const _db= (await connectDB).db("ToDoApp")
+    const dataList= await _db.collection('post').find().toArray();
+    console.log(dataList);
     let TodoList =['스트레칭하기','심바산책하기','청소하기','리액트 다까자뿌따']
     return(
         <section className="todoListWrap">
