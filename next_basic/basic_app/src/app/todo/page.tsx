@@ -1,4 +1,4 @@
-import { connectDB } from "../../../util/database";
+import { connectDB } from "@/util/database";
 
 async function Todo() {
  
@@ -14,7 +14,8 @@ async function Todo() {
                     dataList.map((item,i:number)=>{
                         return(
                               <li key={i} className="listItem">
-                                <p>{item.goal}</p>
+                                <h4>{item._id}</h4>
+                                <h4>{item.goal}</h4>
                                 <p className="day">{item.dueDate}</p>
                                 <p>{item.TodoList}</p>
                             </li>
@@ -27,5 +28,5 @@ async function Todo() {
         </section>
     )
 }
-
+//dynamic route -> [폴더명]
 export default Todo
