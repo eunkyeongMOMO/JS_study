@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 export default async function Detail(){
     const _db= (await connectDB ).db("ToDoApp")
-    const dataList= await _db.collection('post').findOne({_id: '1'});
+    const dataList= await _db.collection('post').findOne({_id:1});
     console.log(dataList);
     return(
         <div>
