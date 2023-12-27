@@ -1,5 +1,5 @@
 import { connectDB } from "@/util/database";
-
+import {Link} from 'next/link';
 async function Todo() {
  
     const _db= (await connectDB).db("ToDoApp")
@@ -15,11 +15,14 @@ async function Todo() {
                         return(
                               <li key={i} className="listItem">
                                 <h4>{item._id}</h4>
-                                <h4>{item.goal}</h4>
+                                <Link preFetch={false} href={`/dedail/${item.id}`}><h4>{item.goal}</h4></Link>
+                                {/* prefetch 기능은 개발단계에선 확인불가능*/}
+
                                 <p className="day">{item.dueDate}</p>
                                 <p>{item.TodoList}</p>
                             </li>
                         )
+                        
 
                     })
                 }
