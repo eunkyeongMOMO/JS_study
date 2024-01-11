@@ -15,4 +15,13 @@ offsetTop | 해당 html요소의 Y좌표 값 반환 | `element.offsetTop`
 const move_cont = (cont)=>{
     document.querySelector('.'+cont).scrollIntoView(true);
 }
+
+//iframe 내 객체로 스크롤 이동
+const iframeSection= document.querySelector(iframe_id);
+const iframeEl= iframeSection.contentWindow.document.querySelector(Element);
+const scrollSection= iframeEl.offsetY;
+const clickEl= document.querySelector(clickEventEl);
+clickEl.addEventListener('',()=>{
+    window.scrollTo({top:scrollSection, behavior:'smooth'})  
+})
 ```
