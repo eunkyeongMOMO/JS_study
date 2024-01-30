@@ -469,7 +469,3 @@ solution39('12a')
 //문제49
 
 const Answer49 = document.querySelector('.answer49');
-
-const solution49 = (my_string)={
-
-}
