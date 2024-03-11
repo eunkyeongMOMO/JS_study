@@ -1,6 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { User } from "./entitys/User"
+import { User } from "./entities/User"
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
     database: "postgres",
     synchronize: true, //개발환경에서만 true/ 실서버에서는 false
     logging: false,
-    entities: ["src/entitys/**/*.ts"],
+    entities: ["src/entities/**/*.ts"],
     migrations: [],
     subscribers: [],
 })
