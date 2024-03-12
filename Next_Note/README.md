@@ -7,4 +7,19 @@ claaa-walldator | 데코레이터를 이용해서 요청에서 오는 오브젝�
 class-transfomer | 일반 개체를 클래의 일부 인스턴스로 또는 그반대로 변환 할 수 있습니다.
 
 
+version: "3"
+services:
+    db:
+        image: postgres:latest
+        container_name: reddit-postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        environment: //환경변수 사용
+            POSTGRES_USER: "${DB_USER_ID}"
+            POSTGRES_PASSWORD: "${DB_USER_PASSWORD}"
+        volumes: //컨테이너 삭제해도 데이터 백업해놓기 위해 사용
+            - ./data:/var/lib/postgresql/data
 
+도커 실핼 - docker compose up 
+켜켜져있는 로컬 서버 끔 - pklii node
