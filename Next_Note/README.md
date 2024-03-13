@@ -23,3 +23,8 @@ services:
 
 도커 실핼 - docker compose up 
 켜켜져있는 로컬 서버 끔 - pklii node
+
+
+class-transformer 리터럴 객체 -> 를래스 인스턴스 / 클래스 인스턴스 -> 리터럴객체 로 변환해주는 것.
+plainToInstance  / intanceToPlain
+

@@ -1,6 +1,8 @@
 import { Exclude } from "class-transformer";
 import { IsEmail, Length } from "class-validator"
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, Index, OneToMany, BeforeInsert } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, Index, OneToMany, BeforeInsert } from "typeorm"
+import BaseEntity from "./Entity";
+import Post from "./Post"
 
 @Entity('users') 
 // User 클래스가 entityd임을 나타내는데 사용합니다.
