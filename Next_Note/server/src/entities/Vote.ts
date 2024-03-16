@@ -4,6 +4,8 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "t
 import User from "./User";
 import Post from "./Post";
 import BaseEntity from "./Entity"
+import Comment from "./Comment";
+
 
 @Entity("votes")
 export default class Vote extends BaseEntity {

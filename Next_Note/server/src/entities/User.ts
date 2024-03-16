@@ -1,8 +1,10 @@
 import { Exclude } from "class-transformer";
 import { IsEmail, Length } from "class-validator"
 import { Entity, PrimaryGeneratedColumn, Column, Index, OneToMany, BeforeInsert } from "typeorm"
+import bcrypt from "bcryptjs";
 import BaseEntity from "./Entity";
-import Post from "./Post"
+import Post from "./Post";
+import Vote from "./Vote";
 
 @Entity('users') 
 // User 클래스가 entityd임을 나타내는데 사용합니다.

@@ -1,11 +1,10 @@
 import { Exclude, Expose } from "class-transformer";
-import { IsEmail, Length } from "class-validator"
-import { Entity, PrimaryGeneratedColumn, Column,  ManyToOne, JoinColumn, BeforeInsert, OneToMany, Index } from "typeorm"
+import { Entity, Column,  ManyToOne, JoinColumn, BeforeInsert, OneToMany, Index } from "typeorm"
 import User from "./User";
 import Post from "./Post";
 import BaseEntity from "./Entity";
-import { makeId } from "../utils/helpers";
 import Vote from "./Vote";
+import { makeId } from "../utils/helpers";
 @Entity("comments")
 export default class Comment extends BaseEntity {
     @Index()
@@ -26,7 +25,7 @@ export default class Comment extends BaseEntity {
     
 
     @ManyToOne(()=> Post, (post) => post.comments)
-    post:Postst;
+    post:Post;
     
     @Exclude()
     @OneToMany(()=> Vote, (vote) => vote.post)

@@ -1,10 +1,10 @@
-export const slugify = function (str) {
+export const slugify = function (str:string) {
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();
 
     // remove accents, swap ñ for n, etc
-    var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
-    var to = "aaaaaeeeeeiiiiooooouuuunc------";
+    let from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
+    let to = "aaaaaeeeeeiiiiooooouuuunc------";
     for (var i = 0, l = from.length; i < l; i++) {
         str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
     }
@@ -17,7 +17,7 @@ export const slugify = function (str) {
 };
 
 
-export function makeId(length) {
+export function makeId(length:number) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
